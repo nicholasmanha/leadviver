@@ -3,7 +3,7 @@ import { Kumbh_Sans } from "next/font/google";
 import "./globals.css";
 
 const kumbhSans = Kumbh_Sans({
-  weight: ['400', '700'], // Define the weights you need
+  weight: ['400', '500', '600'], // Define the weights you need
   subsets: ['latin'], // Define the subsets you need
   display: 'swap', // Optional: Add display swap for better performance
 })

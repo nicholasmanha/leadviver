@@ -24,6 +24,7 @@ const config = {
       'button-4': '0.625rem',
       subtitle: '0.75rem',
     },
+    
     colors: {
       'primary': '#262B49',
       'primary-light': '#3F4774',
@@ -43,6 +44,11 @@ const config = {
       'failure-light': '#FFB1C0',
       'red': '#A22C2C',
       'blue': '#1B5E84',
+    },
+    fontWeight: {
+      normal: '400',
+      medium: '500',
+      semibold: '600',
     },
     fontFamily: {
       sans: ['Kumbh Sans', 'sans-serif'],

@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils"
 const typographyVariants = cva('text-base', {
   variants: {
     variant: {
-      heading: 'text-base font-bold',
-      subheading: 'text-xl font-semibold',
-      body: 'text-base',
-      caption: 'text-sm text-gray-600',
+      p: 'text-base font-thin',
+      'p-bold': 'text-xl font-semibold',
+      h1: 'text-base',
+      h2: 'text-sm text-gray-600',
     },
     color: {
       primary: 'text-blue-600',
@@ -19,17 +19,17 @@ const typographyVariants = cva('text-base', {
     },
   },
   defaultVariants: {
-    variant: 'body',
+    variant: 'p',
   },
 });
 
 interface TypographyProps extends HTMLAttributes<HTMLParagraphElement>, VariantProps<typeof typographyVariants> {
-  variant?: 'heading' | 'subheading' | 'body' | 'caption';
+  variant?: 'p' | 'p-bold' | 'h1' | 'h2';
   color?: 'primary' | 'secondary' | 'success' | 'danger';
   className?: string;
 }
 
-const Typography: FC<TypographyProps> = ({ variant = 'body', color, className, children, ...props }) => {
+const Typography: FC<TypographyProps> = ({ variant = 'p', color, className, children, ...props }) => {
   return (
     <p className={cn(typographyVariants({ variant, color }), className)} {...props}>
       {children}
