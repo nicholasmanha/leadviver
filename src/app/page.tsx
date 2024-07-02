@@ -1,20 +1,26 @@
-import Typography from "@/components/ui/Typography"
+import Typography from "@/_components/Typography"
+import { Button } from "@/_components/button"
+import { LuUpload } from "react-icons/lu";
 
 export default function Home() {
+  
   return (
     <>
+    <div className="inline-flex flex-col ...">
+      <Button variant="default" asChild>
+        <a href="#"><LuUpload className="mr-1"/> Upload Leads</a>
+      </Button>
+      <Button variant="default" size="icon" asChild>
+        <a href="#">test</a>
+      </Button>
+      <div className="inline-flex">
+        <Button variant="default" className="inline-flex" asChild>
+          <a href="#">test</a>
+        </Button>
+      </div>
+      
+    </div>
     
-      <Typography variant="p">hello</Typography>
-      <Typography variant="p-bold">hello</Typography>
-      <Typography variant="h1">hello</Typography>
-      <Typography variant="h2">hello</Typography>
-      <Typography variant="h3">hello</Typography>
-      <Typography variant="h4">hello</Typography>
-      <Typography variant="h5">hello</Typography>
-      <Typography variant="table-content">hello</Typography>
-      <Typography variant="table-header">hello</Typography>
-      <Typography variant="subtitle">hello</Typography>
-
     </>
   );
 }
