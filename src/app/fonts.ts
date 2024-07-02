@@ -1,4 +1,4 @@
-import { Ballet, Kumbh_Sans } from 'next/font/google'
+import { Inter, Kumbh_Sans } from 'next/font/google'
 
 
 export const kumbhSans = Kumbh_Sans({
@@ -7,9 +7,9 @@ export const kumbhSans = Kumbh_Sans({
     variable: '--font-kumbh'
 })
 
-export const ballet = Ballet({
+export const inter = Inter({
     subsets: ['latin'], 
-    variable: '--font-ballet'
+    variable: '--font-inter'
 })
 
 

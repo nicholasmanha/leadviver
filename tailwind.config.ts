@@ -12,16 +12,14 @@ const config = {
   theme: {
     fontSize: {
       base: '1rem',
-      h1: '3.125rem',
-      h2: '2.5rem',
-      h3: '1.875rem',
-      h4: '1.5rem',
-      h5: '1.25rem',
+      '4xl': '3.125rem',
+      '3xl': '2.5rem',
+      '2xl': '1.875rem',
+      xl: '1.5rem',
+      lg: '1.25rem',
       'table-content': '0.875rem',
-      'button-1': '1.5rem',
-      'button-2': '1rem',
-      'button-3': '0.75rem',
-      'button-4': '0.625rem',
+      small: '0.75rem',
+      tiny: '0.625rem',
       subtitle: '0.75rem',
     },
     
@@ -52,7 +50,7 @@ const config = {
     },
     fontFamily: {
       sans: "var(--font-kumbh)",
-      table: "var(--font-ballet)",
+      table: "var(--font-inter)",
     },
     container: {
       center: true,

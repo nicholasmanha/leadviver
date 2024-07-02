@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { kumbhSans, ballet } from './fonts'
+import { kumbhSans, inter } from './fonts'
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${kumbhSans.variable} ${ballet.variable}`} lang="en">
-      <body className={ballet.className}>{children}</body>
+    <html className={`${kumbhSans.variable} ${inter.variable}`} lang="en">
+      <body className={kumbhSans.className}>{children}</body>
     </html>
   );
 }
