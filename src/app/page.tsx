@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 export default function Home() {
   return (
     <>
-      <Typography variant="p">hello</Typography>
+      <Typography variant="p">Landing Page</Typography>
     
 
     </>
