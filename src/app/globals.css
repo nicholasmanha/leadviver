@@ -2,3 +2,7 @@
   @tailwind components;
   @tailwind utilities;
   
+  html {
+    font-family: 'Kumbh Sans', sans-serif;
+  }
+   

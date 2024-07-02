@@ -45,7 +45,7 @@ const config = {
       'blue': '#1B5E84',
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
+      sans: ['Kumbh Sans', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
     container: {
