@@ -12,11 +12,11 @@ const config = {
   theme: {
     fontSize: {
       base: '1rem',
-      huge: '3.125rem',
-      large: '2.5rem',
-      bigger: '1.875rem',
-      big: '1.5rem',
-      medium: '1.25rem',
+      h1: '3.125rem',
+      h2: '2.5rem',
+      h3: '1.875rem',
+      h4: '1.5rem',
+      h5: '1.25rem',
       'table-content': '0.875rem',
       'button-1': '1.5rem',
       'button-2': '1rem',
@@ -51,8 +51,8 @@ const config = {
       semibold: '600',
     },
     fontFamily: {
-      sans: ['Kumbh Sans', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      sans: "var(--font-kumbh)",
+      table: "var(--font-ballet)",
     },
     container: {
       center: true,

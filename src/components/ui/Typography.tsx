@@ -6,10 +6,15 @@ import { cn } from "@/lib/utils"
 const typographyVariants = cva('text-base', {
   variants: {
     variant: {
-      p: 'text-base font-thin',
-      'p-bold': 'text-xl font-semibold',
-      h1: 'text-base',
-      h2: 'text-sm text-gray-600',
+      p: 'text-base font-normal',
+      'p-bold': 'text-base font-semibold',
+      h1: 'text-h1 font-semibold',
+      h2: 'text-h2 font-semibold',
+      h3: 'text-h3 font-semibold',
+      h4: 'text-h4 font-medium',
+      h5: 'text-h5 font-medium',
+      'table-content': 'text-table-content font-normal',
+      'table-header': 'text-table-content font-semibold',
     },
     color: {
       primary: 'text-blue-600',

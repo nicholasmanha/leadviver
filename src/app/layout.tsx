@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Kumbh_Sans } from "next/font/google";
+import { kumbhSans, ballet } from './fonts'
 import "./globals.css";
-
-const kumbhSans = Kumbh_Sans({
-  weight: ['400', '500', '600'], // Define the weights you need
-  subsets: ['latin'], // Define the subsets you need
-  display: 'swap', // Optional: Add display swap for better performance
-})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={kumbhSans.className}>{children}</body>
+    <html className={`${kumbhSans.variable} ${ballet.variable}`} lang="en">
+      <body className={ballet.className}>{children}</body>
     </html>
   );
 }
