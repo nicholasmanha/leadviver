@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Kumbh_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const kumbhSans = Kumbh_Sans({
+  weight: ['400', '500', '600'], // Define the weights you need
+  subsets: ['latin'], // Define the subsets you need
+  display: 'swap', // Optional: Add display swap for better performance
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={kumbhSans.className}>{children}</body>
     </html>
   );
 }
