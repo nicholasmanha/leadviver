@@ -22,7 +22,13 @@ const config = {
       tiny: '0.625rem',
       subtitle: '0.75rem',
     },
-    
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     colors: {
       'primary': '#262B49',
       'primary-light': '#3F4774',
@@ -42,6 +48,7 @@ const config = {
       'failure-light': '#FFB1C0',
       'red': '#A22C2C',
       'blue': '#1B5E84',
+      'navfoot': "#3A4063"
     },
     fontWeight: {
       normal: '400',
@@ -60,6 +67,9 @@ const config = {
       },
     },
     extend: {
+      maxWidth: {
+        'xl': '56rem', 
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
