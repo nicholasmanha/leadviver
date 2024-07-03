@@ -14,7 +14,7 @@ const config = {
       base: '0.85rem',
       '4xl': '3.125rem',
       '3xl': '2.5rem',
-      '2xl': '1.875rem',
+      '2xl': '1.475rem',
       xl: '1.2rem',
       lg: '1.25rem',
       'table-content': '0.875rem',
