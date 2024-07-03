@@ -65,6 +65,7 @@ export default function Home() {
           these valuable leads that enables wholesalers to recoup some of their
           marketing costs and agents to grow their businesses.
         </Typography>
+        <div className="h-10" />
       </BasePage>
     </>
   );
