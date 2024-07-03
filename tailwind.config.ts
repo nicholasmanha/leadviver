@@ -15,7 +15,7 @@ const config = {
       '4xl': '3.125rem',
       '3xl': '2.5rem',
       '2xl': '1.875rem',
-      xl: '1.5rem',
+      xl: '1.2rem',
       lg: '1.25rem',
       'table-content': '0.875rem',
       sm: '0.75rem',
@@ -51,9 +51,9 @@ const config = {
       'navfoot': "#3A4063"
     },
     fontWeight: {
-      normal: '400',
-      medium: '500',
-      semibold: '600',
+      normal: '300',
+      medium: '400',
+      semibold: '500',
     },
     fontFamily: {
       sans: "var(--font-kumbh)",
@@ -70,6 +70,9 @@ const config = {
       maxWidth: {
         'xl': '56rem', 
       },
+      fontSize: {
+        'table-content': '0.875rem',
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -84,6 +87,7 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+
     },
   },
   plugins: [require("tailwindcss-animate")],
