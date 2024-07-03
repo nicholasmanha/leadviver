@@ -48,7 +48,8 @@ const config = {
       'failure-light': '#FFB1C0',
       'red': '#A22C2C',
       'blue': '#1B5E84',
-      'navfoot': "#3A4063"
+      'navfoot': "#3A4063",
+      'url': "#43D2FF"
     },
     fontWeight: {
       normal: '400',

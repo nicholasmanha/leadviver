@@ -23,12 +23,12 @@ const buttonVariants = cva(
         lg: "h-20 w-72 rounded-xl px-8",
         icon: "h-10 w-10",
       },
-      
+
     },
     defaultVariants: {
       variant: "default",
       size: "default",
-      
+
     },
   }
 )
@@ -38,7 +38,7 @@ type NativeProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export interface ButtonProps
   extends Omit<NativeProps, keyof ButtonVariantProps>,
-    ButtonVariantProps {asChild?: boolean}
+  ButtonVariantProps { asChild?: boolean }
 
 
 
@@ -46,13 +46,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, color, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     return (
-      <div className="inline-flex">
-        <Comp
-          className={cn(buttonVariants({ variant, size, className }))}
-          ref={ref}
-          {...props}
-        />
-      </div>
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
     )
   }
 )
