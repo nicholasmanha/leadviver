@@ -22,7 +22,13 @@ const config = {
       tiny: '0.625rem',
       subtitle: '0.75rem',
     },
-    
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     colors: {
       'primary': '#262B49',
       'primary-light': '#3F4774',
@@ -60,6 +66,9 @@ const config = {
       },
     },
     extend: {
+      maxWidth: {
+        'xl': '56rem', 
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
