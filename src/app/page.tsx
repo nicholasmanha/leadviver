@@ -3,10 +3,10 @@
 import Typography from "@/_components/Typography"
 import { Button } from "@/_components/button"
 import { LuUpload } from "react-icons/lu";
-import { NavigationMenu } from "@/_components/navbar";
 import BasePage from "@/_components/basepage";
 import { FaAnglesDown } from "react-icons/fa6";
 import { useRef } from 'react';
+import NavbarWrapper from "@/_components/navbar";
 
 export default function Home() {
   const scroll_target = useRef<HTMLDivElement>(null);
@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <>
-      {/* <NavigationMenu/> */}
+    <NavbarWrapper></NavbarWrapper>
       <BasePage>
         <Typography variant="h2" className="mt-20 text-center">
           Welcome to LeadViver 👋
