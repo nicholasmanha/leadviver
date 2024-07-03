@@ -15,7 +15,11 @@ const typographyVariants = cva('text-base', {
       h5: 'text-lg font-medium',
       'table-content': 'text-table-content font-normal font-table',
       'table-header': 'text-table-content font-semibold font-table',
-      subtitle: 'text-subtitle font-normal'
+      subtitle: 'text-subtitle font-normal',
+      'button-1': 'text-xl font-semibold',
+      'button-2': 'text-base font-semibold',
+      'button-3': 'text-small font-semibold',
+      'button-4': 'text-tiny font-semibold',
     },
     color: {
       primary: 'text-text-primary',
@@ -31,7 +35,7 @@ const typographyVariants = cva('text-base', {
 });
 
 interface TypographyProps extends HTMLAttributes<HTMLParagraphElement>, VariantProps<typeof typographyVariants> {
-  variant?: 'p' | 'p-bold' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'table-content' | 'table-header' | 'subtitle';
+  variant?: 'p' | 'p-bold' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'table-content' | 'table-header' | 'subtitle' | 'button-1' | 'button-2' | 'button-3' | 'button-4';
   color?: 'primary' | 'secondary' | 'success' | 'danger';
   className?: string;
 }
