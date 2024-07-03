@@ -11,15 +11,15 @@ const config = {
   prefix: "",
   theme: {
     fontSize: {
-      base: '1rem',
+      base: '0.85rem',
       '4xl': '3.125rem',
       '3xl': '2.5rem',
       '2xl': '1.875rem',
       xl: '1.5rem',
       lg: '1.25rem',
       'table-content': '0.875rem',
-      small: '0.75rem',
-      tiny: '0.625rem',
+      sm: '0.75rem',
+      xs: '0.625rem',
       subtitle: '0.75rem',
     },
     screens: {

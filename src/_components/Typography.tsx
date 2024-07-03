@@ -18,8 +18,8 @@ const typographyVariants = cva('text-base', {
       subtitle: 'text-subtitle font-normal',
       'button-1': 'text-xl font-semibold',
       'button-2': 'text-base font-semibold',
-      'button-3': 'text-small font-semibold',
-      'button-4': 'text-tiny font-semibold',
+      'button-3': 'text-sm font-semibold',
+      'button-4': 'text-xs font-semibold',
     },
     color: {
       primary: 'text-text-primary',
