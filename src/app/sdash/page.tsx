@@ -3,6 +3,7 @@ import BasePage from "@/_components/basepage";
 import NavbarWrapper from "@/_components/navbar";
 import Typography from "@/_components/Typography";
 import { LuCheckCircle2 } from "react-icons/lu";
+import Card from "@/_components/Card";
 
 export default function Page() {
     const left =
@@ -25,17 +26,17 @@ export default function Page() {
     return <div>
         <NavbarWrapper></NavbarWrapper>
         <BasePage>
-
-            <Tile left={left} right={right}>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, magni ullam? Quas quasi, expedita quod quibusdam, laudantium veritatis placeat, in nisi perspiciatis recusandae dolorum magnam doloremque consequuntur quidem dolorem incidunt?
-            </Tile>
-            <Tile left={left} right={right}>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, magni ullam? Quas quasi, expedita quod quibusdam, laudantium veritatis placeat, in nisi perspiciatis recusandae dolorum magnam doloremque consequuntur quidem dolorem incidunt?
-            </Tile>
-            <Tile left={left} right={right}>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, magni ullam? Quas quasi, expedita quod quibusdam, laudantium veritatis placeat, in nisi perspiciatis recusandae dolorum magnam doloremque consequuntur quidem dolorem incidunt?
-            </Tile>
-
+            <Card title="test">
+                <Tile left={left} right={right}>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, magni ullam? Quas quasi, expedita quod quibusdam, laudantium veritatis placeat, in nisi perspiciatis recusandae dolorum magnam doloremque consequuntur quidem dolorem incidunt?
+                </Tile>
+                <Tile left={left} right={right}>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, magni ullam? Quas quasi, expedita quod quibusdam, laudantium veritatis placeat, in nisi perspiciatis recusandae dolorum magnam doloremque consequuntur quidem dolorem incidunt?
+                </Tile>
+                <Tile left={left} right={right}>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, magni ullam? Quas quasi, expedita quod quibusdam, laudantium veritatis placeat, in nisi perspiciatis recusandae dolorum magnam doloremque consequuntur quidem dolorem incidunt?
+                </Tile>
+            </Card>
         </BasePage>
 
     </div>

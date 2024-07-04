@@ -33,7 +33,7 @@ function Tile({ children, left, right }: CollapsibleProps) {
     >
       <div className="flex items-center justify-between space-x-4 px-4 py-2">
         <div className="w-full grid grid-cols-2 items-center">
-          <div className=""><Typography>{left}</Typography></div>
+          <div className="">{left}</div>
           <div className="inline mr-0 ml-auto float-right">{right}</div>
         </div>
 
