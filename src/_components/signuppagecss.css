@@ -1,0 +1,22 @@
+@keyframes slide_in {
+    from {
+        top: 0px;
+        left: 100px;
+        opacity: 0;
+    }
+
+    to {
+        top: 0px;
+        left: 0px;
+        opacity: 1;
+    }
+}
+
+.image_slider {
+    animation-name: slide_in;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
