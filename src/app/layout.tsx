@@ -18,7 +18,7 @@ export default function RootLayout({
     <html className={`${kumbhSans.variable} ${inter.variable}`} lang="en">
 
       <body className={kumbhSans.className}>
-        <div>
+        <div className="bg-background-padding">
           {children}
         </div>
       </body>
