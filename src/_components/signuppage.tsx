@@ -13,10 +13,6 @@ import { FaFacebookSquare, FaApple, FaMicrosoft } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
 
-interface SignUpPageProps {
-
-}
-
 interface AuthProviderProps {
     logo?: ReactElement;
     name?: ReactElement | String;
@@ -57,13 +53,14 @@ const house_filenames = [
     "house6.jpg",
 ]
 
-export default function SignUpPage() {
+interface SignupPageProps {
+    type : "buyer" | "seller"
+}
+
+export default function SignUpPage({type}: SignupPageProps) {
     const [images, setImages] = useState([<ImageComponent key="supercool" filename="house1.jpg" />]);
 
     const [curr_image_num, set_curr_image_num] = useState(2);
-    function increment_curr_image() {
-
-    }
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -98,13 +95,11 @@ export default function SignUpPage() {
                     background: "#1a1e37",
                     opacity: "0.5"
                 }}
-            >
-                hello
-            </div>
+            />
             <div className="absolute top-0 left-0 bg-background opacity-95 lg:w-1/2 sm:w-full min-h-screen flex flex-col justify-center">
                 <div className="bg-primary opacity-100 mx-10 px-10 py-5 rounded-xl mb-20">
                     <Typography variant="h3" className='mb-5'>
-                        Sign Up
+                        {type == "buyer" ? "Buyer" : "Seller"} Sign Up
                     </Typography>
                     <AuthProviderButton logo={<ImGoogle2 />} name="Google" />
                     <AuthProviderButton logo={<FaSquareXTwitter />} name="X" />
