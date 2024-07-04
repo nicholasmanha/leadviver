@@ -29,12 +29,12 @@ function Tile({ children, left, right }: CollapsibleProps) {
     <Collapsible
       open={isOpen}
       onOpenChange={setIsOpen}
-      className="w-full bg-secondary rounded-md"
+      className="w-full bg-secondary rounded-md my-4"
     >
       <div className="flex items-center justify-between space-x-4 px-4 py-2">
-        <div className="w-full">
-          <div className="inline-flex"><Typography>{left}</Typography></div>
-          <div className="float-right inline-flex"><Typography>{right}</Typography></div>
+        <div className="w-full grid grid-cols-2 items-center">
+          <div className=""><Typography>{left}</Typography></div>
+          <div className="inline mr-0 ml-auto float-right">{right}</div>
         </div>
 
         <CollapsibleTrigger asChild>
