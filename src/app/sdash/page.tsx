@@ -26,7 +26,7 @@ export default function Page() {
     return <div>
         <NavbarWrapper></NavbarWrapper>
         <BasePage>
-            <Card title="test">
+            <Card title="test" info="ello">
                 <Tile left={left} right={right}>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, magni ullam? Quas quasi, expedita quod quibusdam, laudantium veritatis placeat, in nisi perspiciatis recusandae dolorum magnam doloremque consequuntur quidem dolorem incidunt?
                 </Tile>
