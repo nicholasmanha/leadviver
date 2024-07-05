@@ -30,7 +30,7 @@ function Tile({ children, left, right }: CollapsibleProps) {
     <Collapsible
       open={isOpen}
       onOpenChange={setIsOpen}
-      className="w-full bg-secondary rounded-md my-4"
+      className="w-full bg-secondary rounded-xl my-1"
     >
       <div className="flex items-center justify-between space-x-4 px-4 py-2">
         <div className="w-full grid grid-cols-2 items-center">
@@ -39,7 +39,7 @@ function Tile({ children, left, right }: CollapsibleProps) {
         </div>
 
         <CollapsibleTrigger asChild>
-          {isOpen ? <LuChevronDown /> : <LuChevronUp />}
+          {isOpen ? <LuChevronDown className="h-6 w-6"/> : <LuChevronUp className="h-6 w-6"/>}
         </CollapsibleTrigger>
       </div>
 

@@ -6,7 +6,6 @@ import {
     HoverCardContent,
     HoverCardTrigger,
 } from "./HoverCard"
-import { Button } from "./button";
 
 interface CardProps {
     title: ReactElement | String;
