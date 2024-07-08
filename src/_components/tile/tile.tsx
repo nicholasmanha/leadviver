@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react";
 import "./tile.css";
 import { LuChevronUp } from "react-icons/lu";
@@ -8,15 +10,24 @@ import {
   CollapsibleTrigger,
 } from "./Collapsible";
 import { FC, ReactNode, useState } from "react";
-import { createContext, useContext} from 'react';
+import { createContext, useContext } from 'react';
+import Typography from "../Typography";
 
 interface TileProps {
+  children: ReactNode;
+}
+
+interface TileTitleProps {
   children: ReactNode;
 }
 
 interface TileLeftProps {
   price: number;
   address: string;
+  date: string;
+}
+
+interface TileRightProps {
   children: ReactNode;
 }
 
@@ -25,7 +36,9 @@ interface TileContentProps {
 }
 
 interface TileComponent extends FC<TileProps> {
+  Title: FC<TileTitleProps>;
   Left: FC<TileLeftProps>;
+  Right: FC<TileRightProps>;
   Content: FC<TileContentProps>;
 }
 
@@ -43,6 +56,7 @@ const useTileContext = () => {
   return context;
 };
 
+// Root tile component
 const Tile: TileComponent = ({ children }: TileProps): JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -55,63 +69,80 @@ const Tile: TileComponent = ({ children }: TileProps): JSX.Element => {
       open={isOpen}
       onOpenChange={setIsOpen}
       onClick={toggleState}
-      className="w-full bg-stone-600 rounded-xl my-1"
+      className="w-full bg-secondary rounded-xl my-1"
     >
-      
       <TileContext.Provider value={{ isOpen }}>
-      {children}
-    </TileContext.Provider>
-      
+        {/* children is title and content */}
+        {children}
+      </TileContext.Provider>
     </Collapsible>
   );
 };
 
-/**
- * The AccordionItem component.
- *
- * @param {AccordionItemProps} props - The component props.
- * @returns {JSX.Element} The rendered AccordionItem component.
- */
-const Left: FC<TileLeftProps> = ({
+const Title: FC<TileTitleProps> = ({
   children,
-}: TileLeftProps): JSX.Element => {
-  /**
-   * Handle the click event on an accordion item button.
-   */
-  
+}: TileTitleProps): JSX.Element => {
+
   const { isOpen } = useTileContext();
   return (
     <div className="flex items-center justify-between space-x-4 px-4 py-2">
-        <div className="w-full grid grid-cols-2 items-center">
-          {children}
-        </div>
-
-        {isOpen ? (
-          <LuChevronDown className="h-6 w-6" />
-        ) : (
-          <LuChevronUp className="h-6 w-6" />
-        )}
+      <div className="w-full grid grid-cols-2 items-center">
+        {/* children is left and right */}
+        {children}
       </div>
+      {isOpen ? (
+        <LuChevronDown className="h-6 w-6" />
+      ) : (
+        <LuChevronUp className="h-6 w-6" />
+      )}
+    </div>
+  );
+};
+
+const Left: FC<TileLeftProps> = ({
+  price, address, date
+}: TileLeftProps): JSX.Element => {
+
+  return (
+    <>
+      <div>
+        <Typography variant="p-bold" className="mb-[-5px] ">{address}</Typography>
+
+        <Typography className="inline" variant="h3">$</Typography><Typography className="inline" variant="h5">{price}</Typography> <Typography className="inline" >Posed on {date}</Typography>
+
+
+
+      </div>
+
+
+    </>
+  );
+};
+
+const Right: FC<TileRightProps> = ({
+  children,
+}: TileRightProps): JSX.Element => {
+
+  return (
+    <div className="inline mr-0 ml-auto float-right">{children}</div>
   );
 };
 
 const Content: FC<TileContentProps> = ({
   children,
 }: TileContentProps): JSX.Element => {
-  /**
-   * Handle the click event on an accordion item button.
-   */
-  
 
   return (
     <CollapsibleContent className="CollapsibleContent bg-secondary-light rounded-b-md">
-        <div className="px-4 py-2 font-mono text-sm shadow-sm">{children}</div>
-      </CollapsibleContent>
+      <div className="px-4 py-2 font-mono text-sm shadow-sm">{children}</div>
+    </CollapsibleContent>
   );
 };
 
-// Attach the AccordionItem component as a property of the Accordion component.
+
+Tile.Title = Title;
 Tile.Left = Left;
+Tile.Right = Right;
 Tile.Content = Content
 
 export default Tile;
