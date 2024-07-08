@@ -16,7 +16,7 @@ interface CardProps {
 
 export default function Card({ title, info, children }: CardProps) {
     return (
-        <div className="bg-primary w-full mx-4 rounded-2xl flex flex-col justify-center p-4">
+        <div className="bg-primary m-4 rounded-2xl flex flex-col justify-center p-4 ">
             <div className="flex items-center h-full mb-3">
                 <Typography className="inline-flex " variant="h3">{title} </Typography>
 

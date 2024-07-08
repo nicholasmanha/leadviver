@@ -109,12 +109,7 @@ const Left: FC<TileLeftProps> = ({
         <Typography variant="p-bold" className="mb-[-5px] ">{address}</Typography>
 
         <Typography className="inline" variant="h3">$</Typography><Typography className="inline" variant="h5">{price}</Typography> <Typography className="inline" >Posed on {date}</Typography>
-
-
-
       </div>
-
-
     </>
   );
 };
