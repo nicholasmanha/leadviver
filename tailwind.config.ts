@@ -13,10 +13,10 @@ const config = {
     fontSize: {
       base: '0.85rem',
       '4xl': '3.125rem',
-      '3xl': '2.5rem',
+      '3xl': '1.8rem',
       '2xl': '1.475rem',
       xl: '1.2rem',
-      lg: '1.25rem',
+      lg: '0.9rem',
       'table-content': '0.875rem',
       sm: '0.75rem',
       xs: '0.625rem',
