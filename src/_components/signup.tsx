@@ -76,7 +76,7 @@ export default function SignUpPage({type}: SignupPageProps) {
                 }
                 return prev + 1;
             })
-        }, 8000);
+        }, 5500);
 
         return () => clearInterval(interval);
     }, [curr_image_num]);
@@ -85,7 +85,7 @@ export default function SignUpPage({type}: SignupPageProps) {
         <NavbarWrapper />
         <div className="min-h-screen flex w-full bg-background-padding z-0 relative" >
             <div
-                className="absolute w-full h-full"
+                className="absolute w-full h-full overflow-x-hidden"
             >
                 {images}
             </div>
