@@ -11,6 +11,7 @@ import { ReactElement } from "react"
 import { ImGoogle2 } from "react-icons/im";
 import { FaFacebookSquare, FaApple, FaMicrosoft } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { Input } from "./input";
 
 
 interface AuthProviderProps {
@@ -54,10 +55,10 @@ const house_filenames = [
 ]
 
 interface SignupPageProps {
-    type : "buyer" | "seller"
+    type: "buyer" | "seller"
 }
 
-export default function SignUpPage({type}: SignupPageProps) {
+export default function SignUpPage({ type }: SignupPageProps) {
     const [images, setImages] = useState([<ImageComponent key="supercool" filename="house1.jpg" />]);
 
     const [curr_image_num, set_curr_image_num] = useState(2);
@@ -96,7 +97,7 @@ export default function SignUpPage({type}: SignupPageProps) {
                     opacity: "0.5"
                 }}
             />
-            <div className="absolute top-0 left-0 bg-background opacity-95 lg:w-1/2 sm:w-full min-h-screen flex flex-col justify-center">
+            <div className="absolute top-0 left-0 bg-background opacity-95 lg:w-1/3 sm:w-full min-h-screen flex flex-col justify-center">
                 <div className="bg-primary opacity-100 mx-10 px-10 py-5 rounded-xl mb-20">
                     <Typography variant="h3" className='mb-5'>
                         {type == "buyer" ? "Buyer" : "Seller"} Sign Up
@@ -106,6 +107,21 @@ export default function SignUpPage({type}: SignupPageProps) {
                     <AuthProviderButton logo={<FaFacebookSquare />} name="FaceBook" />
                     <AuthProviderButton logo={<FaApple />} name="Apple" />
                     <AuthProviderButton logo={<FaMicrosoft />} name="Microsoft" />
+                    <div className="flex w-full items-center">
+                        <hr className="border border-text-secondary w-full" /><Typography className="mx-2 mb-[-2px]" variant="h5" color="secondary">OR</Typography><hr className="w-full border border-text-secondary" />
+                    </div>
+
+                    <div className="my-2">
+                        <Typography variant="p-bold" className="mb-1">Name</Typography>
+                        <Input className="rounded-2xl mb-2 px-3 text-left" placeholder="Enter your name" />
+                        <Typography variant="p-bold" className="mb-1">Email</Typography>
+                        <Input className="rounded-2xl mb-2 px-3 text-left" placeholder="Enter your email" />
+                        <Typography variant="p-bold" className="mb-1">Password</Typography>
+                        <Input className="rounded-2xl mb-2 px-3 text-left" placeholder="Enter your account password" />
+                        <Typography variant="p-bold" className="mb-1">Country</Typography>
+                        <Input className="rounded-2xl mb-2 px-3 text-left" placeholder="United States" />
+                    </div>
+
                     <Typography className="text-center mt-6 mb-4">
                         Already have an account? <span className="text-url">Log In</span>
                     </Typography>
