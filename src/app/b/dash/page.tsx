@@ -55,7 +55,7 @@ export default function Page() {
             <Typography className="text-center" variant="h2">Seller Dashboard</Typography>
             <Card title="Reviewed Leads">
             {leads.map((lead) => (
-                <Tile>
+                <Tile key={`${lead.date}+${lead.price}+${lead.address}+1`}>
                     <Tile.Title>
                         <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
 
@@ -72,7 +72,7 @@ export default function Page() {
 
             <Card title="Unreviewed Leads" >
             {leads.map((lead) => (
-                <Tile>
+                <Tile key={`${lead.date}+${lead.price}+${lead.address}+2`}>
                     <Tile.Title>
                         <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
                         <Tile.Right>
