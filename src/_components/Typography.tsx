@@ -15,7 +15,7 @@ const typographyVariants = cva('text-base', {
       h5: 'text-lg font-medium',
       'table-content': 'text-table-content font-normal font-table text-sm',
       'table-header': 'text-table-content font-semibold font-table text-sm',
-      subtitle: 'text-subtitle font-normal',
+      subtitle: 'text-sm font-normal',
       'button-1': 'text-xl font-semibold',
       'button-2': 'text-base font-semibold',
       'button-3': 'text-sm font-semibold',

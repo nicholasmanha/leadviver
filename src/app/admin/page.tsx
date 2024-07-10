@@ -118,24 +118,27 @@ export default function Page() {
 
           </TabsList>
           <div className="flex mt-3">
-            <InputSearch/>
+            <InputSearch />
             <Button className="h-7">Field</Button>
           </div>
 
           <TabsContent value="buyers">
             <TableInstance />
-            <PaginationNavigation/>
+            <PaginationNavigation />
           </TabsContent>
           <TabsContent value="sellers">
             <TableInstance />
+            <PaginationNavigation />
 
           </TabsContent>
           <TabsContent value="banned">
             <TableInstance />
+            <PaginationNavigation />
 
           </TabsContent>
           <TabsContent value="admins">
             <TableInstance />
+            <PaginationNavigation />
 
           </TabsContent>
         </Tabs>
@@ -143,6 +146,7 @@ export default function Page() {
 
       <Card title="Unassigned Leads" >
         <TableInstance />
+        <PaginationNavigation />
 
       </Card>
     </BasePage>
