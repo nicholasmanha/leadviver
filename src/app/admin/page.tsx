@@ -23,6 +23,9 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/_components/Tab"
+import InputSearch from "@/_components/input-search";
+import PaginationNavigation from "@/_components/pagin-nav";
+
 
 const invoices = [
   {
@@ -114,9 +117,14 @@ export default function Page() {
             <TabsTrigger className="mr-3" value="admins"><Typography variant="h5">Admins</Typography></TabsTrigger>
 
           </TabsList>
+          <div className="flex mt-3">
+            <InputSearch/>
+            <Button className="h-7">Field</Button>
+          </div>
+
           <TabsContent value="buyers">
             <TableInstance />
-
+            <PaginationNavigation/>
           </TabsContent>
           <TabsContent value="sellers">
             <TableInstance />
