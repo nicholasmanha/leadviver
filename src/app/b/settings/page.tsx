@@ -21,6 +21,79 @@ import { Input } from "@/_components/input";
 import { Switch } from "@/_components/Switch";
 import { Label } from "@/_components/Label";
 
+const invoices = [
+  {
+    invoice: "INV001",
+    paymentStatus: "Paid",
+    totalAmount: "$250.00",
+    paymentMethod: "Credit Card",
+  },
+  {
+    invoice: "INV002",
+    paymentStatus: "Pending",
+    totalAmount: "$150.00",
+    paymentMethod: "PayPal",
+  },
+  {
+    invoice: "INV003",
+    paymentStatus: "Unpaid",
+    totalAmount: "$350.00",
+    paymentMethod: "Bank Transfer",
+  },
+  {
+    invoice: "INV004",
+    paymentStatus: "Paid",
+    totalAmount: "$450.00",
+    paymentMethod: "Credit Card",
+  },
+  {
+    invoice: "INV005",
+    paymentStatus: "Paid",
+    totalAmount: "$550.00",
+    paymentMethod: "PayPal",
+  },
+  {
+    invoice: "INV006",
+    paymentStatus: "Pending",
+    totalAmount: "$200.00",
+    paymentMethod: "Bank Transfer",
+  },
+  {
+    invoice: "INV007",
+    paymentStatus: "Unpaid",
+    totalAmount: "$300.00",
+    paymentMethod: "Credit Card",
+  },
+]
+
+const TableInstance: React.FC = () => {
+  return (
+
+    <Table>
+
+      <TableHeader>
+        <TableRow>
+          <TableHead className="w-[100px]">Name</TableHead>
+          <TableHead>Home Address</TableHead>
+          <TableHead>Phone Number</TableHead>
+          <TableHead className="text-right">Additional Notes</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {invoices.map((invoice) => (
+          <TableRow key={invoice.invoice}>
+            <TableCell className="font-medium">{invoice.invoice}</TableCell>
+            <TableCell>{invoice.paymentStatus}</TableCell>
+            <TableCell>{invoice.paymentMethod}</TableCell>
+            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+
+    </Table>
+
+  );
+};
 
 export default function Page() {
   return <>
@@ -80,21 +153,49 @@ export default function Page() {
         </div>
 
       </div>
-      <div className="w-[600px] mb-12">
+      <div className="mb-12">
         <div className="mb-8">
           <Typography variant="h4"> Billing </Typography>
         </div>
-        <Card className="m-0" size="small" title="Payment Method">
-          <Typography>ee</Typography>
-          
+        <Card className="mx-0" size="small" title="Payment Method">
+          <div className="flex justify-between my-2">
+            <div className="flex items-center">
+              <img className="w-32" src="/mc_symbol.svg" alt="Example SVG" />
+              <div className="flex flex-col">
+                <Typography variant="h3">Master Card</Typography>
+                <Typography variant="p" color="secondary">
+                  **** **** **** 4314 <br />
+                  Expires on 1/2/24 <br />
+                  johndoe@gmail.com
+                </Typography>
+
+              </div>
+
+            </div>
+            <Button className="w-24"> <Typography variant="button-3">Change</Typography> </Button>
+          </div>
+          <div className="">
+            <Button size="default">Add</Button>
+          </div>
+
+        </Card>
+        <Card className="mx-0" size="small" title="Invoice">
+          <TableInstance />
+
         </Card>
 
       </div>
-      <div className="w-[600px] mb-12">
+      <div className="mb-12">
         <div className="mb-8">
-          <Typography variant="h4"> Account </Typography>
-        </div>
 
+          <Typography variant="h4"> Account </Typography>
+
+        </div>
+        <div className="flex gap-4">
+          <Button size="lg" className="bg-primary w-1/2"><Typography variant="button-1">Reset Password</Typography></Button>
+          <Button size="lg" className="bg-primary w-1/2"><Typography variant="button-1" className="text-failure">Delete Account</Typography></Button>
+
+        </div>
       </div>
 
     </BasePage>

@@ -56,7 +56,6 @@ const config = {
         'background-padding': '#1A1E37',
         'text-primary': '#FFFFFF',
         'text-secondary': '#D6D7DE',
-        'table-stroke': '#131313', // 58% opacity
         'accent': '#E04DDA',
         'button': '#4B5173',
         'success': '#5DB38F',
