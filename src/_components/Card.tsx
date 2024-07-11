@@ -20,7 +20,7 @@ interface CardProps {
 
 export default function Card({ title, size = "large", info, children, className }: CardProps) {
     return (
-        <div className={cn("bg-primary  lg:mx-4 my-4 rounded-2xl flex flex-col justify-center p-4 ", className)}>
+        <div className={cn("bg-primary lg:mx-4 my-4 rounded-2xl flex flex-col justify-center p-4 ", className)}>
             <div className="flex items-center h-full mb-3">
                 {size === "large" ? <Typography className="inline-flex " variant="h3">{title} </Typography> : <Typography className="inline-flex " variant="h5">{title} </Typography>}
 

@@ -75,9 +75,9 @@ export default function Page() {
             <Typography className="text-center" variant="h2">Seller Dashboard</Typography>
             <Card title="Reviewed Leads">
                 <div className="flex justify-end">
-                    <DropdownMenu >
-                        <DropdownMenuTrigger asChild>
-                            <div className="w-6">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger className="" asChild>
+                            <div className="relative top-[-35px] ml-2 w-6">
                                 <LuMenu />
                             </div>
 
