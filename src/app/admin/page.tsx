@@ -121,7 +121,6 @@ export default function Page() {
             <InputSearch />
             <Button className="h-7">Field</Button>
           </div>
-
           <TabsContent value="buyers">
             <TableInstance />
             <PaginationNavigation />
@@ -147,7 +146,6 @@ export default function Page() {
       <Card title="Unassigned Leads" >
         <TableInstance />
         <PaginationNavigation />
-
       </Card>
     </BasePage>
   </>

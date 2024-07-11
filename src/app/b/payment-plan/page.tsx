@@ -21,7 +21,7 @@ export default function Page() {
                         Start with entering a zip code to see rates
                     </Typography>
                     <div className="flex justify-center ">
-                        <Input className="w-40 mb-2" type="text" placeholder="Zip"></Input>
+                        <Input className="w-40 mb-2 text-center" type="text" placeholder="Zip"></Input>
                     </div>
 
                     <div className="flex justify-evenly my-4 flex-1">

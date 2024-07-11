@@ -29,7 +29,7 @@ const config = {
       'xl': '1280px',
       '2xl': '1536px',
     },
-    
+
     fontWeight: {
       normal: '300',
       medium: '400',
@@ -56,7 +56,6 @@ const config = {
         'background-padding': '#1A1E37',
         'text-primary': '#FFFFFF',
         'text-secondary': '#D6D7DE',
-        'table-stroke': '#131313', // 58% opacity
         'accent': '#E04DDA',
         'button': '#4B5173',
         'success': '#5DB38F',
@@ -66,11 +65,11 @@ const config = {
         'failure-light': '#FFB1C0',
         'red': '#A22C2C',
         'blue': '#1B5E84',
-      'navfoot': "#3A4063",
+        'navfoot': "#3A4063",
         'url': "#43D2FF"
       },
       maxWidth: {
-        'xl': '56rem', 
+        'xl': '56rem',
       },
       fontSize: {
         'table-content': '0.875rem',
