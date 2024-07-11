@@ -4,7 +4,6 @@ import BasePage from "@/_components/basepage";
 import NavbarWrapper from "@/_components/navbar";
 import Typography from "@/_components/Typography";
 import Tile from "@/_components/tile/tile"
-import { LuCheckCircle2 } from "react-icons/lu";
 import Card from "@/_components/Card";
 import {
     Table,
@@ -15,10 +14,7 @@ import {
     TableRow,
 } from "@/_components/Table"
 import { Button } from "@/_components/button";
-import { LuDownload } from "react-icons/lu";
-import { LuPlusCircle } from "react-icons/lu";
 import { useState } from "react";
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
 import {
     DropdownMenu,
     DropdownMenuContent,
