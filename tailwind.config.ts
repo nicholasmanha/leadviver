@@ -29,7 +29,7 @@ const config = {
       'xl': '1280px',
       '2xl': '1536px',
     },
-    
+
     fontWeight: {
       normal: '300',
       medium: '400',
@@ -66,11 +66,11 @@ const config = {
         'failure-light': '#FFB1C0',
         'red': '#A22C2C',
         'blue': '#1B5E84',
-      'navfoot': "#3A4063",
+        'navfoot': "#3A4063",
         'url': "#43D2FF"
       },
       maxWidth: {
-        'xl': '56rem', 
+        'xl': '56rem',
       },
       fontSize: {
         'table-content': '0.875rem',
