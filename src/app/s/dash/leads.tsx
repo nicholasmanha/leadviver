@@ -90,13 +90,13 @@ export default function Leads() {
       </Table>
       <div className="flex justify-between">
         <div className="inline-flex">
-          <Button variant="default" size="sm" className="mr-2">
+          <Button variant="default" size="sm" className="hidden sm:flex mr-2">
             <div className="flex items-center justify-center "><LuDownload className="w-3 mr-1 h-3" /></div>
             <Typography className="inline-flex mb-[-2px]" variant="button-4">
               Download Template CSV
             </Typography>
           </Button>
-          <Button variant="default" size="sm" className="mr-2">
+          <Button variant="default" size="sm" className="hidden sm:flex mr-2">
             <div className="flex items-center justify-center "><LuDownload className="w-3 mr-1 h-3" /></div>
             <Typography className="inline-flex mb-[-2px]" variant="button-4">
               Upload CSV

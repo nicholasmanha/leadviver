@@ -104,7 +104,7 @@ export default function Page() {
       </div>
 
 
-      <div className="w-[600px] mb-12">
+      <div className="sm:w-[600px] w-full mb-12">
         <div className="mb-8">
           <Typography variant="h4"> Profile </Typography>
         </div>
@@ -131,13 +131,13 @@ export default function Page() {
         <Button size="default" variant="default"><Typography variant="button-2">Apply Changes</Typography></Button>
       </div>
 
-      <div className="w-[600px] mb-12">
+      <div className="sm:w-[600px] w-full mb-12">
         <div className="mb-8">
           <Typography variant="h4"> Payment Plan </Typography>
         </div>
 
       </div>
-      <div className="w-[600px] mb-12">
+      <div className="sm:w-[600px] w-full mb-12">
         <div className="mb-8">
           <Typography variant="h4"> Notifications </Typography>
 
@@ -157,7 +157,7 @@ export default function Page() {
         <div className="mb-8">
           <Typography variant="h4"> Billing </Typography>
         </div>
-        <Card className="mx-0" size="small" title="Payment Method">
+        <Card className="!mx-0" size="small" title="Payment Method">
           <div className="flex justify-between my-2">
             <div className="flex items-center">
               <img className="w-32" src="/mc_symbol.svg" alt="Example SVG" />
@@ -179,7 +179,7 @@ export default function Page() {
           </div>
 
         </Card>
-        <Card className="mx-0" size="small" title="Invoice">
+        <Card className="!mx-0" size="small" title="Invoice">
           <TableInstance />
 
         </Card>
@@ -191,9 +191,9 @@ export default function Page() {
           <Typography variant="h4"> Account </Typography>
 
         </div>
-        <div className="flex gap-4">
-          <Button size="lg" className="bg-primary w-1/2"><Typography variant="button-1">Reset Password</Typography></Button>
-          <Button size="lg" className="bg-primary w-1/2"><Typography variant="button-1" className="text-failure">Delete Account</Typography></Button>
+        <div className="flex gap-4 w-full">
+          <Button className="bg-primary h-14 flex-1"><Typography variant="button-1">Reset Password</Typography></Button>
+          <Button className="bg-primary h-14 flex-1"><Typography variant="button-1" className="text-failure">Delete Account</Typography></Button>
 
         </div>
       </div>

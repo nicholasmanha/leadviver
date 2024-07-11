@@ -123,7 +123,7 @@ export default function SignUpPage({ type }: SignupPageProps) {
                         <Input className="rounded-2xl mb-2 px-3 text-left" placeholder="United States" />
                         
                     </div>
-                    <Button className="w-52">Register</Button>
+                    <Button className="sm:w-52 w-full">Register</Button>
 
                     <Typography className="text-center mt-6 mb-4">
                         Already have an account? {type == "buyer" ? <Link href="/b/signin"><span className="hover:underline hover:text-blue-800 visited:text-purple-600 text-url">Log In</span></Link> : <Link href="/s/signin"><span className="hover:underline hover:text-blue-800 visited:text-purple-600 text-url">Log In</span></Link>}
