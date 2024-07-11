@@ -35,26 +35,31 @@ const leads = [
         price: 250,
         address: "819 Lakeview Boulevard",
         date: "3/4/23",
+        notes: "test"
     },
     {
         price: 250,
         address: "819 Lakeview Boulevard",
         date: "3/4/23",
+        notes: "test"
     },
     {
         price: 250,
         address: "819 Lakeview Boulevard",
         date: "3/4/23",
+        notes: "test"
     },
     {
         price: 250,
         address: "819 Lakeview Boulevard",
         date: "3/4/23",
+        notes: "test"
     },
     {
         price: 250,
         address: "819 Lakeview Boulevard",
         date: "3/4/23",
+        notes: "test"
     },
 ]
 
@@ -63,39 +68,76 @@ const leads = [
 export default function Page() {
 
 
-    const [position, setPosition] = useState("bottom")
+    const [view, setView] = useState("tile")
     return <>
         <NavbarWrapper></NavbarWrapper>
         <BasePage>
             <Typography className="text-center" variant="h2">Seller Dashboard</Typography>
             <Card title="Reviewed Leads">
-                <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <LuMenu />
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-56">
-                        <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-                            <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
-                        </DropdownMenuRadioGroup>
-                    </DropdownMenuContent>
-                </DropdownMenu>
-                {leads.map((lead) => (
-                    <Tile key={`${lead.date}+${lead.price}+${lead.address}+1`}>
-                        <Tile.Title>
-                            <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
+                <div className="flex justify-end">
+                    <DropdownMenu >
+                        <DropdownMenuTrigger asChild>
+                            <div className="w-6">
+                                <LuMenu />
+                            </div>
+
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-56">
+                            <DropdownMenuLabel>Card View</DropdownMenuLabel>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuRadioGroup value={view} onValueChange={setView}>
+                                <DropdownMenuRadioItem value="tile">Tile</DropdownMenuRadioItem>
+                                <DropdownMenuRadioItem value="table">Table</DropdownMenuRadioItem>
+
+                            </DropdownMenuRadioGroup>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
 
 
-                        </Tile.Title>
+                {view == "tile" ?
+                    <>
+                        {leads.map((lead) => (
 
-                        <Tile.Content>
-                            title
-                        </Tile.Content>
-                    </Tile>
-                ))}
+                            <Tile key={`${lead.date}+${lead.price}+${lead.address}+1`}>
+                                <Tile.Title>
+                                    <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
+
+
+                                </Tile.Title>
+
+                                <Tile.Content>
+                                    {lead.notes}
+                                </Tile.Content>
+                            </Tile>
+                        ))}</>
+                    :
+                    <Table>
+
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead className="w-[100px]">Date</TableHead>
+                                <TableHead>Price</TableHead>
+                                <TableHead>Address</TableHead>
+                                <TableHead className="text-right">Additional Notes</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {leads.map((lead) => (
+                                <TableRow key={`${lead.date}+${lead.price}+${lead.address}+1`}>
+                                    <TableCell className="font-medium">{lead.date}</TableCell>
+                                    <TableCell>{lead.price}</TableCell>
+                                    <TableCell>{lead.address}</TableCell>
+                                    <TableCell className="text-right">{lead.notes}</TableCell>
+                                </TableRow>
+                            ))}
+
+                        </TableBody>
+
+                    </Table>
+                }
+
+
 
             </Card>
 
