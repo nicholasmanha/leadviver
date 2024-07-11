@@ -2,12 +2,12 @@
 
 import Typography from "@/_components/Typography"
 import { Button } from "@/_components/button"
-import { LuUpload } from "react-icons/lu";
 import BasePage from "@/_components/basepage";
 import { FaAnglesDown } from "react-icons/fa6";
 import { useRef } from 'react';
 import NavbarWrapper from "@/_components/navbar";
 import { useState, useEffect } from "react";
+import Link from 'next/link'
 
 function getWindowDimensions() {
   /*
@@ -42,7 +42,7 @@ function useWindowDimensions() {
     if (typeof window !== "undefined") {
       return () => window.removeEventListener('resize', handleResize);
     } else {
-      return () => {};
+      return () => { };
     }
   }, []);
 
@@ -74,8 +74,16 @@ export default function Home() {
             I am interested in...
           </Typography>
           <div className={"flex justify-center gap-10 m-5 items-center " + (width < 515 && "flex-col ")}>
-            <Button variant="red" size="lg"><Typography variant="button-1">Selling Leads</Typography></Button>
-            <Button variant="blue" size="lg"><Typography variant="button-1">Buying Leads</Typography></Button>
+            <Link href="/s/signup">
+              <Button variant="red" size="lg">
+                <Typography variant="button-1">Selling Leads</Typography>
+              </Button>
+            </Link>
+            <Link href="/b/signup">
+              <Button variant="blue" size="lg">
+                <Typography variant="button-1">Buying Leads</Typography>
+              </Button>
+            </Link>
           </div>
           <div className="h-40" />
 
