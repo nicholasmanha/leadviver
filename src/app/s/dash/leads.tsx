@@ -14,54 +14,54 @@ import {
 import { Button } from "@/_components/button";
 import { LuDownload } from "react-icons/lu";
 import { LuPlusCircle } from "react-icons/lu";
-const invoices = [
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/_components/Dropdown"
+import { LuMenu } from "react-icons/lu";
+import { useState } from "react";
+const leads = [
   {
-    invoice: "INV001",
-    paymentStatus: "Paid",
-    totalAmount: "$250.00",
-    paymentMethod: "Credit Card",
+    price: 250,
+    address: "819 Lakeview Boulevard",
+    date: "3/4/23",
+    notes: "test"
   },
   {
-    invoice: "INV002",
-    paymentStatus: "Pending",
-    totalAmount: "$150.00",
-    paymentMethod: "PayPal",
+    price: 250,
+    address: "819 Lakeview Boulevard",
+    date: "3/4/23",
+    notes: "test"
   },
   {
-    invoice: "INV003",
-    paymentStatus: "Unpaid",
-    totalAmount: "$350.00",
-    paymentMethod: "Bank Transfer",
+    price: 250,
+    address: "819 Lakeview Boulevard",
+    date: "3/4/23",
+    notes: "test"
   },
   {
-    invoice: "INV004",
-    paymentStatus: "Paid",
-    totalAmount: "$450.00",
-    paymentMethod: "Credit Card",
+    price: 250,
+    address: "819 Lakeview Boulevard",
+    date: "3/4/23",
+    notes: "test"
   },
   {
-    invoice: "INV005",
-    paymentStatus: "Paid",
-    totalAmount: "$550.00",
-    paymentMethod: "PayPal",
-  },
-  {
-    invoice: "INV006",
-    paymentStatus: "Pending",
-    totalAmount: "$200.00",
-    paymentMethod: "Bank Transfer",
-  },
-  {
-    invoice: "INV007",
-    paymentStatus: "Unpaid",
-    totalAmount: "$300.00",
-    paymentMethod: "Credit Card",
+    price: 250,
+    address: "819 Lakeview Boulevard",
+    date: "3/4/23",
+    notes: "test"
   },
 ]
 
 export default function Leads() {
 
-
+  const [pendingView, setPendingView] = useState("tile")
+  const [reviewedView, setReviewedView] = useState("tile")
 
   return <>
     <Card title="Upload Leads" info="test">
@@ -116,110 +116,156 @@ export default function Leads() {
 
     </Card>
     <Card title="Pending Leads" info="test">
-      <Table>
+      <div className="flex justify-end">
+        <DropdownMenu>
+          <DropdownMenuTrigger className="" asChild>
+            <div className="relative top-[-35px] ml-2 w-6">
+              <LuMenu />
+            </div>
 
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">Name</TableHead>
-            <TableHead>Home Address</TableHead>
-            <TableHead>Phone Number</TableHead>
-            <TableHead className="text-right">Additional Notes</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {invoices.map((invoice) => (
-            <TableRow key={invoice.invoice}>
-              <TableCell className="font-medium">{invoice.invoice}</TableCell>
-              <TableCell>{invoice.paymentStatus}</TableCell>
-              <TableCell>{invoice.paymentMethod}</TableCell>
-              <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56">
+            <DropdownMenuLabel>Card View</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuRadioGroup value={pendingView} onValueChange={setPendingView}>
+              <DropdownMenuRadioItem value="tile">Tile</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="table">Table</DropdownMenuRadioItem>
+
+            </DropdownMenuRadioGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+      {pendingView == "tile" ?
+        <>
+          {leads.map((lead) => (
+
+            <Tile key={`${lead.date}+${lead.price}+${lead.address}+1`}>
+              <Tile.Title>
+                <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
+
+
+              </Tile.Title>
+
+              <Tile.Content>
+                {lead.notes}
+              </Tile.Content>
+            </Tile>
+          ))}</>
+        :
+        <Table>
+
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[100px]">Date</TableHead>
+              <TableHead>Price</TableHead>
+              <TableHead>Address</TableHead>
+              <TableHead className="text-right">Additional Notes</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
+          </TableHeader>
+          <TableBody>
+            {leads.map((lead) => (
+              <TableRow key={`${lead.date}+${lead.price}+${lead.address}+1`}>
+                <TableCell className="font-medium">{lead.date}</TableCell>
+                <TableCell>{lead.price}</TableCell>
+                <TableCell>{lead.address}</TableCell>
+                <TableCell className="text-right">{lead.notes}</TableCell>
 
-      </Table>
+              </TableRow>
+            ))}
+
+          </TableBody>
+
+        </Table>
+      }
     </Card>
     <Card title="Reviewed Leads" info="test">
-      <Tile>
-        <Tile.Title>
-          <Tile.Left date="5/3/24" price={150} address="819 Lakeview Boulevard" />
 
-          <Tile.Right>
-            <div className="flex items-center justify-center text-success">
-              <LuCheckCircle2 className="w-6 mx-2 h-6" />
-              <LuCheckCircle2 className="w-6 mx-2 h-6" />
-              <Typography variant="h3" color="danger">&lt;35%</Typography></div>
-          </Tile.Right>
-        </Tile.Title>
 
-        <Tile.Content>
-          title
-        </Tile.Content>
-      </Tile>
-      <Tile>
-        <Tile.Title>
-          <Tile.Left date="5/3/24" price={150} address="819 Lakeview Boulevard" />
+      <div className="flex justify-end">
+        <DropdownMenu>
+          <DropdownMenuTrigger className="" asChild>
+            <div className="relative top-[-35px] ml-2 w-6">
+              <LuMenu />
+            </div>
 
-          <Tile.Right>
-            <div className="flex items-center justify-center text-success">
-              <LuCheckCircle2 className="w-6 mx-2 h-6" />
-              <LuCheckCircle2 className="w-6 mx-2 h-6" />
-              <Typography variant="h3" color="danger">&lt;35%</Typography></div>
-          </Tile.Right>
-        </Tile.Title>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56">
+            <DropdownMenuLabel>Card View</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuRadioGroup value={reviewedView} onValueChange={setReviewedView}>
+              <DropdownMenuRadioItem value="tile">Tile</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="table">Table</DropdownMenuRadioItem>
 
-        <Tile.Content>
-          title
-        </Tile.Content>
-      </Tile>
-      <Tile>
-        <Tile.Title>
-          <Tile.Left date="5/3/24" price={150} address="819 Lakeview Boulevard" />
+            </DropdownMenuRadioGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+      {reviewedView == "tile" ?
+        <>
+          {leads.map((lead) => (
 
-          <Tile.Right>
-            <div className="flex items-center justify-center text-success">
-              <LuCheckCircle2 className="w-6 mx-2 h-6" />
-              <LuCheckCircle2 className="w-6 mx-2 h-6" />
-              <Typography variant="h3" color="danger">&lt;35%</Typography></div>
-          </Tile.Right>
-        </Tile.Title>
+            <Tile key={`${lead.date}+${lead.price}+${lead.address}+2`}>
+              <Tile.Title>
+                <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
+                <Tile.Right>
+                  <div className="flex items-center text-success">
+                    <LuCheckCircle2 className="w-6 mx-2 h-6" />
+                    <LuCheckCircle2 className="w-6 mx-2 h-6" />
+                    <Typography variant="h3" color="danger">&lt;11%</Typography>
+                  </div>
+                </Tile.Right>
 
-        <Tile.Content>
-          title
-        </Tile.Content>
-      </Tile>
-      <Tile>
-        <Tile.Title>
-          <Tile.Left date="5/3/24" price={150} address="819 Lakeview Boulevard" />
+              </Tile.Title>
 
-          <Tile.Right>
-            <div className="flex items-center justify-center text-success">
-              <LuCheckCircle2 className="w-6 mx-2 h-6" />
-              <LuCheckCircle2 className="w-6 mx-2 h-6" />
-              <Typography variant="h3" color="danger">&lt;35%</Typography></div>
-          </Tile.Right>
-        </Tile.Title>
+              <Tile.Content>
+                title
+              </Tile.Content>
+            </Tile>
+          ))}</>
+        :
+        <Table>
 
-        <Tile.Content>
-          title
-        </Tile.Content>
-      </Tile>
-      <Tile>
-        <Tile.Title>
-          <Tile.Left date="5/3/24" price={150} address="819 Lakeview Boulevard" />
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[100px]">Date</TableHead>
+              <TableHead>Price</TableHead>
+              <TableHead>Address</TableHead>
+              <TableHead className="text-right">Additional Notes</TableHead>
+              <TableHead className="text-right">Status</TableHead>
+              <TableHead className="text-right">Status</TableHead>
+              <TableHead className="text-right">Status</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {leads.map((lead) => (
+              <TableRow key={`${lead.date}+${lead.price}+${lead.address}+1`}>
+                <TableCell className="font-medium">{lead.date}</TableCell>
+                <TableCell>{lead.price}</TableCell>
+                <TableCell>{lead.address}</TableCell>
+                <TableCell className="text-right">{lead.notes}</TableCell>
+                <TableCell className="text-right w-[20px]">
+                <div className="flex items-center text-success">
+                  <LuCheckCircle2 className="w-6 mx-2 h-6" />
+                </div>
 
-          <Tile.Right>
-            <div className="flex items-center justify-center text-success">
-              <LuCheckCircle2 className="w-6 mx-2 h-6" />
-              <LuCheckCircle2 className="w-6 mx-2 h-6" />
-              <Typography variant="h3" color="danger">&lt;35%</Typography></div>
-          </Tile.Right>
-        </Tile.Title>
+                </TableCell>
+                <TableCell className="text-right w-[20px]">
+                <div className="flex items-center text-success">
+                  <LuCheckCircle2 className="w-6 mx-2 h-6" />
+                </div>
 
-        <Tile.Content>
-          title
-        </Tile.Content>
-      </Tile>
+                </TableCell>
+                <TableCell className="text-right w-[20px]">
+                <Typography variant="h5" color="danger">&lt;11%</Typography>
+
+                </TableCell>
+              </TableRow>
+            ))}
+
+          </TableBody>
+
+        </Table>
+      }
     </Card>
 
 
