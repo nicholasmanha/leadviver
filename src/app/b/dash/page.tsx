@@ -68,7 +68,8 @@ const leads = [
 export default function Page() {
 
 
-    const [view, setView] = useState("tile")
+    const [reviewedView, setReviewedView] = useState("tile")
+    const [unreviewedView, setUnreviewedView] = useState("tile")
     return <>
         <NavbarWrapper></NavbarWrapper>
         <BasePage>
@@ -85,7 +86,7 @@ export default function Page() {
                         <DropdownMenuContent className="w-56">
                             <DropdownMenuLabel>Card View</DropdownMenuLabel>
                             <DropdownMenuSeparator />
-                            <DropdownMenuRadioGroup value={view} onValueChange={setView}>
+                            <DropdownMenuRadioGroup value={reviewedView} onValueChange={setReviewedView}>
                                 <DropdownMenuRadioItem value="tile">Tile</DropdownMenuRadioItem>
                                 <DropdownMenuRadioItem value="table">Table</DropdownMenuRadioItem>
 
@@ -95,7 +96,7 @@ export default function Page() {
                 </div>
 
 
-                {view == "tile" ?
+                {reviewedView == "tile" ?
                     <>
                         {leads.map((lead) => (
 
@@ -129,6 +130,7 @@ export default function Page() {
                                     <TableCell>{lead.price}</TableCell>
                                     <TableCell>{lead.address}</TableCell>
                                     <TableCell className="text-right">{lead.notes}</TableCell>
+
                                 </TableRow>
                             ))}
 
@@ -142,23 +144,76 @@ export default function Page() {
             </Card>
 
             <Card title="Unreviewed Leads" >
-                {leads.map((lead) => (
-                    <Tile key={`${lead.date}+${lead.price}+${lead.address}+2`}>
-                        <Tile.Title>
-                            <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
-                            <Tile.Right>
-                                <Button className="py-0 h-8">
-                                    <Typography variant="h5">Review</Typography>
-                                </Button>
-                            </Tile.Right>
+                <div className="flex justify-end">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger className="" asChild>
+                            <div className="relative top-[-35px] ml-2 w-6">
+                                <LuMenu />
+                            </div>
 
-                        </Tile.Title>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-56">
+                            <DropdownMenuLabel>Card View</DropdownMenuLabel>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuRadioGroup value={unreviewedView} onValueChange={setUnreviewedView}>
+                                <DropdownMenuRadioItem value="tile">Tile</DropdownMenuRadioItem>
+                                <DropdownMenuRadioItem value="table">Table</DropdownMenuRadioItem>
 
-                        <Tile.Content>
-                            title
-                        </Tile.Content>
-                    </Tile>
-                ))}
+                            </DropdownMenuRadioGroup>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
+                {unreviewedView == "tile" ?
+                    <>
+                        {leads.map((lead) => (
+
+                            <Tile key={`${lead.date}+${lead.price}+${lead.address}+2`}>
+                                <Tile.Title>
+                                    <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
+                                    <Tile.Right>
+                                        <Button className="py-0 h-8">
+                                            <Typography variant="h5">Review</Typography>
+                                        </Button>
+                                    </Tile.Right>
+
+                                </Tile.Title>
+
+                                <Tile.Content>
+                                    title
+                                </Tile.Content>
+                            </Tile>
+                        ))}</>
+                    :
+                    <Table>
+
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead className="w-[100px]">Date</TableHead>
+                                <TableHead>Price</TableHead>
+                                <TableHead>Address</TableHead>
+                                <TableHead className="text-right">Additional Notes</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {leads.map((lead) => (
+                                <TableRow key={`${lead.date}+${lead.price}+${lead.address}+1`}>
+                                    <TableCell className="font-medium">{lead.date}</TableCell>
+                                    <TableCell>{lead.price}</TableCell>
+                                    <TableCell>{lead.address}</TableCell>
+                                    <TableCell className="text-right">{lead.notes}</TableCell>
+                                    <TableCell className="text-right">
+                                        
+                                    <span className="hover:underline cursor-pointer hover:text-blue-800 visited:text-purple-600 text-url">Review</span>
+                                        
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+
+                        </TableBody>
+
+                    </Table>
+                }
+
 
             </Card>
         </BasePage>
