@@ -67,8 +67,16 @@ export default function Page() {
       <div className="w-[600px] mb-12">
         <div className="mb-8">
           <Typography variant="h4"> Notifications </Typography>
+
+
+        </div>
+        <div className="flex items-center mb-2">
           <Switch id="airplane-mode" />
-          <Label htmlFor="airplane-mode">Airplane Mode</Label>
+          <Label className="mx-2" htmlFor="airplane-mode">Lorem</Label>
+        </div>
+        <div className="flex items-center mb-2">
+          <Switch id="airplane-mode" />
+          <Label className="mx-2" htmlFor="airplane-mode">Ipsum</Label>
         </div>
 
       </div>
@@ -76,6 +84,10 @@ export default function Page() {
         <div className="mb-8">
           <Typography variant="h4"> Billing </Typography>
         </div>
+        <Card className="m-0" size="small" title="Payment Method">
+          <Typography>ee</Typography>
+          
+        </Card>
 
       </div>
       <div className="w-[600px] mb-12">
