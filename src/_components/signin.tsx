@@ -5,7 +5,7 @@ import Footer from "./footer"
 import Typography from "./Typography"
 
 import "./signuppagecss.css"
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./button"
 import { ReactElement } from "react"
 import { ImGoogle2 } from "react-icons/im";
