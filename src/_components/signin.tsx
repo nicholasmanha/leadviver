@@ -119,7 +119,7 @@ export default function SignUpPage({ type }: SignupPageProps) {
                         <Input className="rounded-2xl mb-2 px-3 text-left" placeholder="Enter your account password" />
                         
                     </div>
-                    <Button className="w-52">Log in</Button>
+                    <Button className="sm:w-52 w-full">Log in</Button>
                     
                 </div>
             </div>
