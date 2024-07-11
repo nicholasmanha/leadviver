@@ -12,7 +12,6 @@ import { ImGoogle2 } from "react-icons/im";
 import { FaFacebookSquare, FaApple, FaMicrosoft } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { Input } from "./input";
-import Link from "next/link";
 
 
 interface AuthProviderProps {
@@ -26,7 +25,7 @@ function AuthProviderButton({ logo, name }: AuthProviderProps) {
             {logo}
         </div>
         <div className="w-full">
-            Sign up with {name}
+            Sign in with {name}
         </div>
     </Button>
 }
@@ -101,7 +100,7 @@ export default function SignUpPage({ type }: SignupPageProps) {
             <div className="absolute top-0 left-0 bg-background opacity-95 lg:w-1/2 sm:w-full min-h-screen flex flex-col justify-center">
                 <div className="bg-primary opacity-100 mx-10 xl:px-28 lg:px-10 px-8 py-5 rounded-xl mb-20">
                     <Typography variant="h3" className='mb-5'>
-                        {type == "buyer" ? "Buyer" : "Seller"} Sign up
+                        {type == "buyer" ? "Buyer" : "Seller"} Sign in
                     </Typography>
                     <AuthProviderButton logo={<ImGoogle2 />} name="Google" />
                     <AuthProviderButton logo={<FaSquareXTwitter />} name="X" />
@@ -113,21 +112,15 @@ export default function SignUpPage({ type }: SignupPageProps) {
                     </div>
 
                     <div className="my-2 mb-4">
-                        <Typography variant="p-bold" className="mb-1">Name</Typography>
-                        <Input className="rounded-2xl mb-2 px-3 text-left" placeholder="Enter your name" />
+                     
                         <Typography variant="p-bold" className="mb-1">Email</Typography>
                         <Input className="rounded-2xl mb-2 px-3 text-left" placeholder="Enter your email" />
                         <Typography variant="p-bold" className="mb-1">Password</Typography>
                         <Input className="rounded-2xl mb-2 px-3 text-left" placeholder="Enter your account password" />
-                        <Typography variant="p-bold" className="mb-1">Country</Typography>
-                        <Input className="rounded-2xl mb-2 px-3 text-left" placeholder="United States" />
                         
                     </div>
-                    <Button className="w-52">Register</Button>
-
-                    <Typography className="text-center mt-6 mb-4">
-                        Already have an account? {type == "buyer" ? <Link href="/b/signin"><span className="hover:underline hover:text-blue-800 visited:text-purple-600 text-url">Log In</span></Link> : <Link href="/s/signin"><span className="hover:underline hover:text-blue-800 visited:text-purple-600 text-url">Log In</span></Link>}
-                    </Typography>
+                    <Button className="w-52">Log in</Button>
+                    
                 </div>
             </div>
         </div>
