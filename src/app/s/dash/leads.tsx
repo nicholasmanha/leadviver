@@ -25,6 +25,7 @@ import {
 } from "@/_components/Dropdown"
 import { LuMenu } from "react-icons/lu";
 import { useState } from "react";
+import { Input } from "@/_components/input";
 const leads = [
   {
     price: 250,
@@ -58,33 +59,63 @@ const leads = [
   },
 ]
 
+interface Lead {
+  id: number;
+  price: number;
+  address: string;
+  date: string;
+  notes: string;
+}
+
 export default function Leads() {
 
   const [pendingView, setPendingView] = useState("tile")
   const [reviewedView, setReviewedView] = useState("tile")
-
+  const [leads, setLeads] = useState<Lead[]>([
+    { id: 1, price: -1, address: '', date: '', notes: '' }
+  ]);
+  const handleLeadInput = (id: number, field: keyof Lead, value: string) => {
+    setLeads(leads.map(lead =>
+      lead.id === id ? { ...lead, [field]: value } : lead
+    ));
+  };
+  const addLead = () => {
+    const newLead: Lead = {
+      id: leads.length + 1,
+      price: -1,
+      address: '',
+      date: '',
+      notes: ''
+    };
+    setLeads([...leads, newLead]);
+  };
   return <>
     <Card title="Upload Leads" info="test">
       <Table className="fade">
 
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]"><Typography variant="table-header"> Name</Typography></TableHead>
+            <TableHead className="w-[100px]"><Typography variant="table-header"> Price</Typography></TableHead>
             <TableHead><Typography variant="table-header"> Home Address</Typography></TableHead>
-            <TableHead><Typography variant="table-header"> Phone Number</Typography></TableHead>
+            <TableHead><Typography variant="table-header">Date</Typography></TableHead>
             <TableHead className="text-right"><Typography variant="table-header"> Additional Notes</Typography></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
 
+          {leads.map(lead => (
+            <TableRow key={lead.id}>
+              <TableCell className="font-medium"><Input placeholder="price" onChange={(e) => handleLeadInput(lead.id, 'price', e.target.value)}></Input></TableCell>
+              <TableCell><Input placeholder="address" onChange={(e) => handleLeadInput(lead.id, 'address', e.target.value)}></Input></TableCell>
+              <TableCell><Input placeholder="dare" onChange={(e) => handleLeadInput(lead.id, 'date', e.target.value)}></Input></TableCell>
+              <TableCell className="text-right"><Input placeholder="notes" onChange={(e) => handleLeadInput(lead.id, 'notes', e.target.value)}></Input></TableCell>
+            </TableRow>
+          ))
 
-          <TableRow key="add">
-            <TableCell className="font-medium"><Typography color="secondary">add</Typography></TableCell>
-            <TableCell>add</TableCell>
-            <TableCell>add</TableCell>
-            <TableCell className="text-right">add</TableCell>
-          </TableRow>
+          }
+          
 
+          <button onClick={addLead}>Add Row</button>
         </TableBody>
 
       </Table>
@@ -244,19 +275,19 @@ export default function Leads() {
                 <TableCell>{lead.address}</TableCell>
                 <TableCell className="text-right">{lead.notes}</TableCell>
                 <TableCell className="text-right w-[20px]">
-                <div className="flex items-center text-success">
-                  <LuCheckCircle2 className="w-6 mx-2 h-6" />
-                </div>
+                  <div className="flex items-center text-success">
+                    <LuCheckCircle2 className="w-6 mx-2 h-6" />
+                  </div>
 
                 </TableCell>
                 <TableCell className="text-right w-[20px]">
-                <div className="flex items-center text-success">
-                  <LuCheckCircle2 className="w-6 mx-2 h-6" />
-                </div>
+                  <div className="flex items-center text-success">
+                    <LuCheckCircle2 className="w-6 mx-2 h-6" />
+                  </div>
 
                 </TableCell>
                 <TableCell className="text-right w-[20px]">
-                <Typography variant="h5" color="danger">&lt;11%</Typography>
+                  <Typography variant="h5" color="danger">&lt;11%</Typography>
 
                 </TableCell>
               </TableRow>
