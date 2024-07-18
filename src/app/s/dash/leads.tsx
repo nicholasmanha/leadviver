@@ -26,7 +26,7 @@ import {
 import { LuMenu } from "react-icons/lu";
 import { useState } from "react";
 import { Input } from "@/_components/input";
-const leads = [
+const seeded_leads = [
   {
     price: 250,
     address: "819 Lakeview Boulevard",
@@ -78,6 +78,11 @@ export default function Leads() {
     setLeads(leads.map(lead =>
       lead.id === id ? { ...lead, [field]: value } : lead
     ));
+
+    const currentRow = leads.find(lead => lead.id === id);
+    if (currentRow && currentRow.price && currentRow.address && currentRow.date && currentRow.notes) {
+      addLead();
+    }
   };
   const addLead = () => {
     const newLead: Lead = {
@@ -88,6 +93,9 @@ export default function Leads() {
       notes: ''
     };
     setLeads([...leads, newLead]);
+  };
+  const outputToConsole = () => {
+    console.log(leads);
   };
   return <>
     <Card title="Upload Leads" info="test">
@@ -107,7 +115,7 @@ export default function Leads() {
             <TableRow key={lead.id}>
               <TableCell className="font-medium"><Input placeholder="price" onChange={(e) => handleLeadInput(lead.id, 'price', e.target.value)}></Input></TableCell>
               <TableCell><Input placeholder="address" onChange={(e) => handleLeadInput(lead.id, 'address', e.target.value)}></Input></TableCell>
-              <TableCell><Input placeholder="dare" onChange={(e) => handleLeadInput(lead.id, 'date', e.target.value)}></Input></TableCell>
+              <TableCell><Input placeholder="date" onChange={(e) => handleLeadInput(lead.id, 'date', e.target.value)}></Input></TableCell>
               <TableCell className="text-right"><Input placeholder="notes" onChange={(e) => handleLeadInput(lead.id, 'notes', e.target.value)}></Input></TableCell>
             </TableRow>
           ))
@@ -115,7 +123,6 @@ export default function Leads() {
           }
           
 
-          <button onClick={addLead}>Add Row</button>
         </TableBody>
 
       </Table>
@@ -135,7 +142,7 @@ export default function Leads() {
           </Button>
         </div>
         <div className="inline-flex">
-          <Button variant="default" size="sm" className="ml-2">
+          <Button onClick={outputToConsole} variant="default" size="sm" className="ml-2">
             <div className="flex items-center justify-center "><LuPlusCircle className="w-3 mr-1 h-3" /></div>
             <Typography className="inline-flex mb-[-2px]" variant="button-4">
               Upload Leads
@@ -168,7 +175,7 @@ export default function Leads() {
       </div>
       {pendingView == "tile" ?
         <>
-          {leads.map((lead) => (
+          {seeded_leads.map((lead) => (
 
             <Tile key={`${lead.date}+${lead.price}+${lead.address}+1`}>
               <Tile.Title>
@@ -194,7 +201,7 @@ export default function Leads() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {leads.map((lead) => (
+            {seeded_leads.map((lead) => (
               <TableRow key={`${lead.date}+${lead.price}+${lead.address}+1`}>
                 <TableCell className="font-medium">{lead.date}</TableCell>
                 <TableCell>{lead.price}</TableCell>
@@ -233,7 +240,7 @@ export default function Leads() {
       </div>
       {reviewedView == "tile" ?
         <>
-          {leads.map((lead) => (
+          {seeded_leads.map((lead) => (
 
             <Tile key={`${lead.date}+${lead.price}+${lead.address}+2`}>
               <Tile.Title>
@@ -268,7 +275,7 @@ export default function Leads() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {leads.map((lead) => (
+            {seeded_leads.map((lead) => (
               <TableRow key={`${lead.date}+${lead.price}+${lead.address}+1`}>
                 <TableCell className="font-medium">{lead.date}</TableCell>
                 <TableCell>{lead.price}</TableCell>
