@@ -67,39 +67,53 @@ const seeded_leads = [
 
 interface Lead {
   id: number;
-  price: number;
+  price: number | null;
   address: string;
   date: string;
   notes: string;
+  addable: boolean;
 }
 
 export default function Leads() {
 
   const [pendingView, setPendingView] = useState("tile")
   const [reviewedView, setReviewedView] = useState("tile")
+
   const [leads, setLeads] = useState<Lead[]>([
-    { id: 1, price: -1, address: '', date: '', notes: '' }
+    { id: 1, price: null, address: '', date: '', notes: '', addable: true }
   ]);
+
   const handleLeadInput = (id: number, field: keyof Lead, value: string) => {
+    // for all of the leads, if the lead id is equal to the current id of the input thats being changed, 
+    // then add the current input to that current lead
+    // if not, don't change the lead
     setLeads(leads.map(lead =>
       lead.id === id ? { ...lead, [field]: value } : lead
     ));
 
     const currentRow = leads.find(lead => lead.id === id);
-    if (currentRow && currentRow.price && currentRow.address && currentRow.date && currentRow.notes) {
+    if (currentRow) {
+      console.log(currentRow.price)
+    }
+
+    if (currentRow && currentRow.price && currentRow.address && currentRow.date && currentRow.notes && currentRow.addable) {
+      currentRow.addable = false;
       addLead();
     }
   };
+
   const addLead = () => {
     const newLead: Lead = {
       id: leads.length + 1,
-      price: -1,
+      price: null,
       address: '',
       date: '',
-      notes: ''
+      notes: '',
+      addable: true,
     };
     setLeads([...leads, newLead]);
   };
+
   const outputToConsole = () => {
     console.log(leads);
   };
@@ -127,7 +141,7 @@ export default function Leads() {
           ))
 
           }
-          
+
 
         </TableBody>
 
