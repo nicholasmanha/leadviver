@@ -26,32 +26,38 @@ import {
 import { LuMenu } from "react-icons/lu";
 import { useState } from "react";
 import { Input } from "@/_components/input";
+
 const seeded_leads = [
   {
+    id: 1,
     price: 250,
     address: "819 Lakeview Boulevard",
     date: "3/4/23",
     notes: "test"
   },
   {
+    id: 2,
     price: 250,
     address: "819 Lakeview Boulevard",
     date: "3/4/23",
     notes: "test"
   },
   {
+    id: 3,
     price: 250,
     address: "819 Lakeview Boulevard",
     date: "3/4/23",
     notes: "test"
   },
   {
+    id: 4,
     price: 250,
     address: "819 Lakeview Boulevard",
     date: "3/4/23",
     notes: "test"
   },
   {
+    id: 5,
     price: 250,
     address: "819 Lakeview Boulevard",
     date: "3/4/23",
@@ -177,7 +183,7 @@ export default function Leads() {
         <>
           {seeded_leads.map((lead) => (
 
-            <Tile key={`${lead.date}+${lead.price}+${lead.address}+1`}>
+            <Tile key={lead.id}>
               <Tile.Title>
                 <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
 
@@ -202,7 +208,7 @@ export default function Leads() {
           </TableHeader>
           <TableBody>
             {seeded_leads.map((lead) => (
-              <TableRow key={`${lead.date}+${lead.price}+${lead.address}+1`}>
+              <TableRow key={lead.id}>
                 <TableCell className="font-medium">{lead.date}</TableCell>
                 <TableCell>{lead.price}</TableCell>
                 <TableCell>{lead.address}</TableCell>
@@ -242,7 +248,7 @@ export default function Leads() {
         <>
           {seeded_leads.map((lead) => (
 
-            <Tile key={`${lead.date}+${lead.price}+${lead.address}+2`}>
+            <Tile key={lead.id}>
               <Tile.Title>
                 <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
                 <Tile.Right>
@@ -276,7 +282,7 @@ export default function Leads() {
           </TableHeader>
           <TableBody>
             {seeded_leads.map((lead) => (
-              <TableRow key={`${lead.date}+${lead.price}+${lead.address}+1`}>
+              <TableRow key={lead.id}>
                 <TableCell className="font-medium">{lead.date}</TableCell>
                 <TableCell>{lead.price}</TableCell>
                 <TableCell>{lead.address}</TableCell>
