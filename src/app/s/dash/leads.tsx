@@ -24,7 +24,7 @@ import {
   DropdownMenuTrigger,
 } from "@/_components/Dropdown"
 import { LuMenu } from "react-icons/lu";
-import { useState } from "react";
+import { useState, ChangeEvent  } from "react";
 import { Input } from "@/_components/input";
 
 const seeded_leads = [
@@ -87,15 +87,14 @@ export default function Leads() {
     // for all of the leads, if the lead id is equal to the current id of the input thats being changed, 
     // then add the current input to that current lead
     // if not, don't change the lead
+
+    // tldr: find the lead and add the current input to the lead
     setLeads(leads.map(lead =>
       lead.id === id ? { ...lead, [field]: value } : lead
     ));
 
     const currentRow = leads.find(lead => lead.id === id);
-    if (currentRow) {
-      console.log(currentRow.price)
-    }
-
+    
     if (currentRow && currentRow.price && currentRow.address && currentRow.date && currentRow.notes && currentRow.addable) {
       currentRow.addable = false;
       addLead();
@@ -117,7 +116,9 @@ export default function Leads() {
   const outputToConsole = () => {
     console.log(leads);
   };
+ 
   return <>
+
     <Card title="Upload Leads" info="test">
       <Table className="fade">
 
