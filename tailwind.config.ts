@@ -66,7 +66,7 @@ const config = {
         'red': "var(--red)",
         'blue': "var(--blue)",
         'navfoot': "var(--navfoot)",
-        'url': "var(--url)",
+        'link': "var(--link)",
       },
       maxWidth: {
         'xl': '56rem',

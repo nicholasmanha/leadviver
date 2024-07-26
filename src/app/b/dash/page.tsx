@@ -45,18 +45,7 @@ const leads = [
         date: "3/4/23",
         notes: "test"
     },
-    {
-        price: 250,
-        address: "819 Lakeview Boulevard",
-        date: "3/4/23",
-        notes: "test"
-    },
-    {
-        price: 250,
-        address: "819 Lakeview Boulevard",
-        date: "3/4/23",
-        notes: "test"
-    },
+
 ]
 
 
@@ -134,7 +123,13 @@ export default function Page() {
 
                     </Table>
                 }
+                <div className="flex justify-center mt-2">
+                    <a href="#">
+                    <Typography variant="button-4" color="link">Show More</Typography>
 
+                    </a>
+
+                </div>
 
 
             </Card>
@@ -198,9 +193,9 @@ export default function Page() {
                                     <TableCell>{lead.address}</TableCell>
                                     <TableCell className="text-right">{lead.notes}</TableCell>
                                     <TableCell className="text-right">
-                                        
-                                    <span className="hover:underline cursor-pointer hover:text-blue-800 visited:text-purple-600 text-url">Review</span>
-                                        
+
+                                        <span className="hover:underline cursor-pointer hover:text-blue-800 visited:text-purple-600 text-url">Review</span>
+
                                     </TableCell>
                                 </TableRow>
                             ))}

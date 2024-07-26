@@ -45,7 +45,7 @@
       --red: #A22C2C;
       --blue: #1B5E84;
       --navfoot: #fff;
-      --url: #43D2FF;
+      --link: #1E90F9;
     }
     @media (prefers-color-scheme: dark) {
       :root { 

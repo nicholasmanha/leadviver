@@ -26,6 +26,7 @@ const typographyVariants = cva('text-base', {
       secondary: 'text-text-secondary',
       success: 'text-success-light',
       danger: 'text-failure-light',
+      link: 'hover:underline hover:text-blue-800 visited:text-purple-600 text-link'
     },
   },
   defaultVariants: {
@@ -36,7 +37,7 @@ const typographyVariants = cva('text-base', {
 
 interface TypographyProps extends HTMLAttributes<HTMLParagraphElement>, VariantProps<typeof typographyVariants> {
   variant?: 'p' | 'p-bold' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'table-content' | 'table-header' | 'subtitle' | 'button-1' | 'button-2' | 'button-3' | 'button-4';
-  color?: 'primary' | 'secondary' | 'success' | 'danger';
+  color?: 'primary' | 'secondary' | 'success' | 'danger' | 'link';
   className?: string;
 }
 
