@@ -26,7 +26,7 @@ const typographyVariants = cva('text-base', {
       secondary: 'text-text-secondary',
       success: 'text-success-light',
       danger: 'text-failure-light',
-      link: 'hover:underline hover:text-blue-800 visited:text-purple-600 text-link'
+      link: 'hover:underline hover:text-blue-800 visited:text-purple-600 text-link cursor-pointer'
     },
   },
   defaultVariants: {

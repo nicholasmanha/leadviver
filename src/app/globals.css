@@ -35,8 +35,10 @@
       --background-padding: #fff;
       --text-primary: #5C5C5C;
       --text-secondary: #858585;
+      --text-button: #FFFFFF;
       --accent: #E04DDA;
-      --button: #D8EAF7;
+      --button: #1E90F9;
+      --button-dark: #1667b3;
       --success: #5DB38F;
       --success-light: #ABEBD0;
       --failure: #FF7A93;
@@ -57,8 +59,10 @@
       --background-padding: #1A1E37;
       --text-primary: #FFFFFF;
       --text-secondary: #D6D7DE;
+      --text-button: #FFFFFF;
       --accent: #E04DDA;
       --button: #4B5173;
+      --button-dark: #404562;
       --success: #5DB38F;
       --success-light: #ABEBD0;
       --failure: #FF7A93;
@@ -67,7 +71,7 @@
       --red: #A22C2C;
       --blue: #1B5E84;
       --navfoot: #3A4063;
-      --url: #43D2FF;
+      --link: #43D2FF;
       }
     }
     :root[data-theme="dark"] {
@@ -81,6 +85,7 @@
       --text-secondary: #D6D7DE;
       --accent: #E04DDA;
       --button: #4B5173;
+      --button-dark: #404562;
       --success: #5DB38F;
       --success-light: #ABEBD0;
       --failure: #FF7A93;
@@ -89,7 +94,7 @@
       --red: #A22C2C;
       --blue: #1B5E84;
       --navfoot: #3A4063;
-      --url: #43D2FF;
+      --link: #43D2FF;
 
     }
   }
