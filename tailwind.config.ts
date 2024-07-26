@@ -52,6 +52,7 @@ const config = {
         'primary-light': "var(--primary-light)",
         'secondary': "var(--secondary)",
         'secondary-light': "var(--secondary-light)",
+        'secondary-hover': "var(--secondary-hover)",
         'background': "var(--background)",
         'background-padding': "var(--background-padding)",
         'text-primary': "var(--text-primary)",

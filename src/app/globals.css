@@ -28,9 +28,10 @@
   @layer base {
     :root {
       --primary: #FFFFFF;
-      --primary-light: #FFFFFF;
+      --primary-light: #e2e2e2;
       --secondary: #EFF3F5;
       --secondary-light: #FFFFFF;
+      --secondary-hover: #d6dadc;
       --background: #F2F2F4;
       --background-padding: #fff;
       --text-primary: #5C5C5C;
@@ -44,17 +45,18 @@
       --failure: #FF7A93;
       --failure-dark: #68343D;
       --failure-light: #FFB1C0;
-      --red: #A22C2C;
-      --blue: #1B5E84;
+      --red: #c43838;
+      --blue: #257aab;
       --navfoot: #fff;
       --link: #1E90F9;
     }
     @media (prefers-color-scheme: dark) {
       :root { 
-        --primary: #262B49;
+      --primary: #262B49;
       --primary-light: #3F4774;
       --secondary: #333959;
       --secondary-light: #474D70;
+      --secondary-hover: #404562;
       --background: #0E1824;
       --background-padding: #1A1E37;
       --text-primary: #FFFFFF;
@@ -79,6 +81,7 @@
       --primary-light: #3F4774;
       --secondary: #333959;
       --secondary-light: #474D70;
+      --secondary-hover: #404562;
       --background: #0E1824;
       --background-padding: #1A1E37;
       --text-primary: #FFFFFF;

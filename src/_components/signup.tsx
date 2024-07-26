@@ -21,11 +21,12 @@ interface AuthProviderProps {
 }
 
 function AuthProviderButton({ logo, name }: AuthProviderProps) {
-    return <Button className="w-full text-left mb-3">
-        <div className="mr-4" style={{ transform: "scale(1.7)" }}>
+    return <Button className="w-full text-left mb-3 bg-secondary hover:bg-secondary-hover">
+        
+        <div className="mr-4 text-text-primary" style={{ transform: "scale(1.7)" }}>
             {logo}
         </div>
-        <div className="w-full">
+        <div className="w-full text-text-primary">
             Sign up with {name}
         </div>
     </Button>
@@ -109,7 +110,7 @@ export default function SignUpPage({ type }: SignupPageProps) {
                     <AuthProviderButton logo={<FaApple />} name="Apple" />
                     <AuthProviderButton logo={<FaMicrosoft />} name="Microsoft" />
                     <div className="flex w-full items-center">
-                        <hr className="border border-text-secondary w-full" /><Typography className="mx-2 mb-[-2px]" variant="h5" color="secondary">OR</Typography><hr className="w-full border border-text-secondary" />
+                        <hr className="border border-text-secondary/90 w-full" /><Typography className="mx-2 mb-[-2px]" variant="h5" color="secondary">OR</Typography><hr className="w-full border border-text-secondary/90" />
                     </div>
 
                     <div className="my-2 mb-4">
