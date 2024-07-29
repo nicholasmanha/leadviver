@@ -20,11 +20,11 @@ interface AuthProviderProps {
 }
 
 function AuthProviderButton({ logo, name }: AuthProviderProps) {
-    return <Button className="w-full text-left mb-3">
-        <div className="mr-4" style={{ transform: "scale(1.7)" }}>
+    return <Button className="w-full text-left mb-3 bg-secondary hover:bg-secondary-hover">
+        <div className="mr-4 text-text-primary" style={{ transform: "scale(1.7)" }}>
             {logo}
         </div>
-        <div className="w-full">
+        <div className="w-full text-text-primary">
             Sign in with {name}
         </div>
     </Button>

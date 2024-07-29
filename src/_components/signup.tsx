@@ -106,7 +106,7 @@ export default function SignUpPage({ type }: SignupPageProps) {
                     opacity: `${opacity}`
                 }}
             />
-            <div className="absolute top-0 left-0 bg-background opacity-95 lg:w-1/2 sm:w-full max-h-screen min-h-screen flex flex-col justify-center">
+            <div className="absolute top-0 left-0 bg-background opacity-95 lg:w-1/2 sm:w-full min-h-full flex flex-col justify-center">
                 <div className="bg-primary opacity-100 mx-10 xl:px-28 lg:px-10 px-8 py-5 rounded-xl mb-20">
                     <Typography variant="h3" className='mb-5'>
                         {type == "buyer" ? "Buyer" : "Seller"} Sign up
@@ -151,6 +151,7 @@ export default function SignUpPage({ type }: SignupPageProps) {
                                 </Typography>
                             </Link>}
                     </div>
+                    
                 </div>
             </div>
         </div>
