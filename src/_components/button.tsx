@@ -13,7 +13,7 @@ const buttonVariants = cva(
         secondary:
           "bg-button text-text-button dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80",
         muted:
-          "bg-button/50 text-text-button/30 cursor-default dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80",
+          "bg-secondary text-text-secondary cursor-default dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80",
         red:
           "bg-red text-text-button hover:bg-red/80 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90",
         blue:
