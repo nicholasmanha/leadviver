@@ -22,7 +22,7 @@ interface AuthProviderProps {
 
 function AuthProviderButton({ logo, name }: AuthProviderProps) {
     return <Button className="w-full text-left mb-3 bg-secondary hover:bg-secondary-hover">
-        
+
         <div className="mr-4 text-text-primary" style={{ transform: "scale(1.7)" }}>
             {logo}
         </div>
@@ -60,12 +60,19 @@ interface SignupPageProps {
     type: "buyer" | "seller"
 }
 
+
+
 export default function SignUpPage({ type }: SignupPageProps) {
+    const [opacity, setOpacity] = useState(0.5);
     const [images, setImages] = useState([<ImageComponent key="supercool" filename="house1.jpg" />]);
 
     const [curr_image_num, set_curr_image_num] = useState(2);
 
+
     useEffect(() => {
+        const rootStyles = getComputedStyle(document.documentElement);
+        const houseOpacity = rootStyles.getPropertyValue('--house-overlay')
+        setOpacity(parseInt(houseOpacity, 0.5));
         const interval = setInterval(() => {
             setImages(prev => {
                 const new_arr = [...prev];
@@ -96,10 +103,10 @@ export default function SignUpPage({ type }: SignupPageProps) {
                 className="absolute w-full h-full"
                 style={{
                     background: "#1a1e37",
-                    opacity: "0.5"
+                    opacity: `${opacity}`
                 }}
             />
-            <div className="absolute top-0 left-0 bg-background opacity-95 lg:w-1/2 sm:w-full min-h-screen flex flex-col justify-center">
+            <div className="absolute top-0 left-0 bg-background opacity-95 lg:w-1/2 sm:w-full max-h-screen min-h-screen flex flex-col justify-center">
                 <div className="bg-primary opacity-100 mx-10 xl:px-28 lg:px-10 px-8 py-5 rounded-xl mb-20">
                     <Typography variant="h3" className='mb-5'>
                         {type == "buyer" ? "Buyer" : "Seller"} Sign up
@@ -110,7 +117,11 @@ export default function SignUpPage({ type }: SignupPageProps) {
                     <AuthProviderButton logo={<FaApple />} name="Apple" />
                     <AuthProviderButton logo={<FaMicrosoft />} name="Microsoft" />
                     <div className="flex w-full items-center">
-                        <hr className="border border-text-secondary/90 w-full" /><Typography className="mx-2 mb-[-2px]" variant="h5" color="secondary">OR</Typography><hr className="w-full border border-text-secondary/90" />
+                        <hr className="border border-text-secondary/90 w-full" />
+                        <Typography className="mx-2 mb-[-2px]" variant="h5" color="secondary">
+                            OR
+                        </Typography>
+                        <hr className="w-full border border-text-secondary/90" />
                     </div>
 
                     <div className="my-2 mb-4">
@@ -126,7 +137,7 @@ export default function SignUpPage({ type }: SignupPageProps) {
                     </div>
                     <Button className="sm:w-52 w-full">Register</Button>
 
-                    <Typography className="text-center mt-6 mb-4">
+                    <div className="text-center mt-6 mb-4">
                         Already have an account? {type == "buyer" ?
                             <Link href="/b/signin">
                                 <Typography className="inline-flex" color="link">
@@ -139,7 +150,7 @@ export default function SignUpPage({ type }: SignupPageProps) {
                                     Log In
                                 </Typography>
                             </Link>}
-                    </Typography>
+                    </div>
                 </div>
             </div>
         </div>
