@@ -128,7 +128,7 @@ const Content: FC<TileContentProps> = ({
 }: TileContentProps): JSX.Element => {
 
   return (
-    <CollapsibleContent className="CollapsibleContent bg-secondary-light rounded-b-md  border border-secondary">
+    <CollapsibleContent className="CollapsibleContent bg-secondary-light rounded-b-xl  border border-secondary">
       <div className="border-2 border-secondary-light px-4 py-2 font-mono text-sm shadow-sm">{children}</div>
     </CollapsibleContent>
   );

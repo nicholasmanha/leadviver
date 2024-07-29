@@ -99,8 +99,8 @@ export default function Page() {
   return <>
     <NavbarWrapper></NavbarWrapper>
     <BasePage>
-      <div className="mb-12">
-        <Typography variant="h2">Settings</Typography>
+      <div className="mb-12 " >
+        <Typography variant="h2" >Settings</Typography>
       </div>
 
 
@@ -128,7 +128,7 @@ export default function Page() {
           </div>
 
         </div>
-        <Button size="default" variant="default"><Typography variant="button-2">Apply Changes</Typography></Button>
+        <Button size="default" variant="default"><Typography variant="button-2" color="button">Apply Changes</Typography></Button>
       </div>
 
       <div className="sm:w-[600px] w-full mb-12">
@@ -172,7 +172,7 @@ export default function Page() {
               </div>
 
             </div>
-            <Button className="w-24"> <Typography variant="button-3">Change</Typography> </Button>
+            <Button className="w-24"> <Typography variant="button-3" color="button">Change</Typography> </Button>
           </div>
           <div className="">
             <Button size="default">Add</Button>

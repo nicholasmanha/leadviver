@@ -92,13 +92,13 @@ export default function Leads() {
         <div className="inline-flex">
           <Button variant="default" size="sm" className="hidden sm:flex mr-2">
             <div className="flex items-center justify-center "><LuDownload className="w-3 mr-1 h-3" /></div>
-            <Typography className="inline-flex mb-[-2px] text-white" variant="button-4">
+            <Typography className="inline-flex mb-[-2px]" variant="button-4" color="button">
               Download Template CSV
             </Typography>
           </Button>
           <Button variant="default" size="sm" className="hidden sm:flex mr-2">
             <div className="flex items-center justify-center "><LuDownload className="w-3 mr-1 h-3" /></div>
-            <Typography className="inline-flex mb-[-2px] text-white" variant="button-4">
+            <Typography className="inline-flex mb-[-2px]" variant="button-4" color="button">
               Upload CSV
             </Typography>
           </Button>
