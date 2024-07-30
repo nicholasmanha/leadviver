@@ -24,7 +24,7 @@ import {
   DropdownMenuTrigger,
 } from "@/_components/Dropdown"
 import { LuMenu } from "react-icons/lu";
-import { useState, ChangeEvent  } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import { Input } from "@/_components/input";
 
 const seeded_leads = [
@@ -67,7 +67,7 @@ const seeded_leads = [
 
 interface Lead {
   id: number;
-  price: number | null;
+  price: number | string;
   address: string;
   date: string;
   notes: string;
@@ -80,43 +80,29 @@ export default function Leads() {
   const [reviewedView, setReviewedView] = useState("tile")
 
   const [leads, setLeads] = useState<Lead[]>([
-    { id: 1, price: null, address: '', date: '', notes: '', addable: true }
+    { id: 1, price: '', address: '', date: '', notes: '', addable: true }
   ]);
 
-  const handleLeadInput = (id: number, field: keyof Lead, value: string) => {
-    // for all of the leads, if the lead id is equal to the current id of the input thats being changed, 
-    // then add the current input to that current lead
-    // if not, don't change the lead
-
-    // tldr: find the lead and add the current input to the lead
-    setLeads(leads.map(lead =>
-      lead.id === id ? { ...lead, [field]: value } : lead
-    ));
-
-    const currentRow = leads.find(lead => lead.id === id);
-    
-    if (currentRow && currentRow.price && currentRow.address && currentRow.date && currentRow.notes && currentRow.addable) {
-      currentRow.addable = false;
-      addLead();
+  useEffect(() => {
+    const allFilled = leads.every(lead => lead.price !== '' && lead.address && lead.date && lead.notes);
+    if (allFilled) {
+      const newId = leads.length ? Math.max(...leads.map(lead => lead.id)) + 1 : 1;
+      setLeads([...leads, { id: newId, price: '', address: '', date: '', notes: '', addable: true }]);
     }
-  };
+  }, [leads]);
 
-  const addLead = () => {
-    const newLead: Lead = {
-      id: leads.length + 1,
-      price: null,
-      address: '',
-      date: '',
-      notes: '',
-      addable: true,
-    };
-    setLeads([...leads, newLead]);
+  const handleInputChange = (id: number, field: keyof Lead, value: string) => {
+    setLeads(leads.map(lead =>
+      lead.id === id
+        ? { ...lead, [field]: field === 'price' ? (value === '' ? '' : Number(value)) : value }
+        : lead
+    ));
   };
 
   const outputToConsole = () => {
     console.log(leads);
   };
- 
+
   return <>
 
     <Card title="Upload Leads" info="test">
@@ -134,10 +120,10 @@ export default function Leads() {
 
           {leads.map(lead => (
             <TableRow key={lead.id}>
-              <TableCell className="font-medium"><Input placeholder="price" onChange={(e) => handleLeadInput(lead.id, 'price', e.target.value)}></Input></TableCell>
-              <TableCell><Input placeholder="address" onChange={(e) => handleLeadInput(lead.id, 'address', e.target.value)}></Input></TableCell>
-              <TableCell><Input placeholder="date" onChange={(e) => handleLeadInput(lead.id, 'date', e.target.value)}></Input></TableCell>
-              <TableCell className="text-right"><Input placeholder="notes" onChange={(e) => handleLeadInput(lead.id, 'notes', e.target.value)}></Input></TableCell>
+              <TableCell className="font-medium"><Input placeholder="price" onChange={(e) => handleInputChange(lead.id, 'price', e.target.value)}></Input></TableCell>
+              <TableCell><Input placeholder="address" onChange={(e) => handleInputChange(lead.id, 'address', e.target.value)}></Input></TableCell>
+              <TableCell><Input placeholder="date" onChange={(e) => handleInputChange(lead.id, 'date', e.target.value)}></Input></TableCell>
+              <TableCell className="text-right"><Input placeholder="notes" onChange={(e) => handleInputChange(lead.id, 'notes', e.target.value)}></Input></TableCell>
             </TableRow>
           ))
 
