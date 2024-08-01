@@ -1,3 +1,4 @@
+"use client"
 import PaymentPlanPage from "@/_components/PlanCard"
 import BasePage from "@/_components/basepage";
 import NavbarWrapper from "@/_components/navbar";
