@@ -117,13 +117,13 @@ export default function Leads() {
           </TableRow>
         </TableHeader>
         <TableBody>
-
+ 
           {leads.map(lead => (
             <TableRow key={lead.id}>
-              <TableCell className="font-medium"><Input placeholder="price" onChange={(e) => handleInputChange(lead.id, 'price', e.target.value)}></Input></TableCell>
-              <TableCell><Input placeholder="address" onChange={(e) => handleInputChange(lead.id, 'address', e.target.value)}></Input></TableCell>
-              <TableCell><Input placeholder="date" onChange={(e) => handleInputChange(lead.id, 'date', e.target.value)}></Input></TableCell>
-              <TableCell className="text-right"><Input placeholder="notes" onChange={(e) => handleInputChange(lead.id, 'notes', e.target.value)}></Input></TableCell>
+              <TableCell className="font-medium"><Input className="border-none h-4" placeholder="price" onChange={(e) => handleInputChange(lead.id, 'price', e.target.value)}></Input></TableCell>
+              <TableCell><Input className="border-none h-4" placeholder="address" onChange={(e) => handleInputChange(lead.id, 'address', e.target.value)}></Input></TableCell>
+              <TableCell><Input className="border-none h-4" placeholder="date" onChange={(e) => handleInputChange(lead.id, 'date', e.target.value)}></Input></TableCell>
+              <TableCell className="text-right"><Input className="border-none h-4" placeholder="notes" onChange={(e) => handleInputChange(lead.id, 'notes', e.target.value)}></Input></TableCell>
             </TableRow>
           ))
 

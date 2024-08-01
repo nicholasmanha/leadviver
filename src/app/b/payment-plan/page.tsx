@@ -3,7 +3,8 @@ import BasePage from "@/_components/basepage";
 import NavbarWrapper from "@/_components/navbar";
 import Typography from "@/_components/Typography";
 import { Input } from "@/_components/input";
-import PlanCard from "@/_components/PlanCard";
+import Price_Table from "./price_table";
+
 
 export default function Page() {
     return <div>
@@ -23,17 +24,7 @@ export default function Page() {
                     <div className="flex justify-center ">
                         <Input className="w-40 mb-2 text-center" type="text" placeholder="Zip"></Input>
                     </div>
-
-                    <div className="flex justify-evenly my-4 flex-1">
-                        <PlanCard plan="Basic" price="349">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut, </PlanCard>
-                        <PlanCard plan="Silver" price="589">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut, </PlanCard>
-                        <PlanCard plan="Gold" price="999">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut, </PlanCard>
-
-                    </div>
-
-
-
-
+                    <Price_Table/>
                 </div>
 
             </div>
