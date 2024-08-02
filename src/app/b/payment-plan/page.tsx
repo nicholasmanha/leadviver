@@ -5,9 +5,12 @@ import NavbarWrapper from "@/_components/navbar";
 import Typography from "@/_components/Typography";
 import { Input } from "@/_components/input";
 import Price_Table from "./price_table";
+import axios from "axios";
+import { useEffect } from "react";
 
 
 export default function Page() {
+    
     return <div>
         <NavbarWrapper></NavbarWrapper>
         <BasePage>

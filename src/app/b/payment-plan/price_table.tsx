@@ -1,13 +1,44 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PlanCard from "@/_components/PlanCard";
+import axios from 'axios';
+
+const leads = {
+  basic: "prod_QaYT8rn3izYWxg",
+  silver: "prod_QaYTGR1EIB2Tip",
+  gold: "prod_QaYTk8Wz93fCRl"
+}
+
+
 
 function Price_Table() {
+  const [priceId, setPriceId] = useState({});
+  useEffect(() => {
+    
+    const fetchPaymentIntent = async () => {
+      try {
+        
+        const response = await axios.post('https://j4y10kfape.execute-api.us-west-1.amazonaws.com/Prod/fetch_product', {
+          product_ids: leads,
+        });
+        
+        
+        setPriceId(response.data)
+        console.log(priceId.prod_QaYT8rn3izYWxg)
+      } catch (error) {
+        console.error('Error creating payment intent:', error);
+      }
+      
+      
+    }
+    fetchPaymentIntent();
+  });
+
   return (
     <div className="flex justify-evenly my-4 flex-1">
-      <PlanCard url="/b/checkout/jeff" plan="Basic" price="349">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut, </PlanCard>
-      <PlanCard url="/b/checkout/jeff" plan="Silver" price="589">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut, </PlanCard>
-      <PlanCard url="/b/checkout/jeff" plan="Gold" price="999">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut, </PlanCard>
+      <PlanCard product="prod_QaYT8rn3izYWxg" plan="Basic" price={priceId.prod_QaYT8rn3izYWxg.unit_amount}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut, </PlanCard>
+      <PlanCard product="prod_QaYT8rn3izYWxg" plan="Silver" price={priceId.prod_QaYTGR1EIB2Tip.unit_amount}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut, </PlanCard>
+      <PlanCard product="prod_QaYT8rn3izYWxg" plan="Gold" price={priceId.prod_QaYTk8Wz93fCRl.unit_amount}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut, </PlanCard>
 
     </div>
   )

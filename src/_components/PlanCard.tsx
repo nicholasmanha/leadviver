@@ -8,16 +8,18 @@ import { ReactElement } from "react"
 interface PlanCardProps {
   plan?: ReactElement | String;
   price?: ReactElement | String;
-  url: String;
+  product: String;
   children?: any
 }
 
-export default function PlanCard({ plan, price, url, children }: PlanCardProps) {
+export default function PlanCard({ plan, price, product, children }: PlanCardProps) {
   const router = useRouter();
 
   const handleRedirect = (url: String) => {
-    const string_url = String(url);
-    router.push(string_url);
+    const string_product = String(url);
+    const url_directory = `/b/checkout/${string_product}`
+
+    router.push(url_directory);
   }
 
   return <div className="bg-primary w-full mx-4 rounded-2xl flex flex-col justify-center p-4">
@@ -36,7 +38,7 @@ export default function PlanCard({ plan, price, url, children }: PlanCardProps) 
       </div>
     </div>
     <div className="flex justify-center">
-      <Button onClick={() => handleRedirect(url)} variant="default" size="lg" className="mt-8 w-44"><Typography variant="h3">Subscribe</Typography></Button>
+      <Button onClick={() => handleRedirect(product)} variant="default" size="lg" className="mt-8 w-44"><Typography variant="h3">Subscribe</Typography></Button>
     </div>
   </div>
 }
