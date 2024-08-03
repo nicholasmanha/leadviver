@@ -24,7 +24,7 @@ export default function PlanCard({ plan, price, product, children }: PlanCardPro
 
   return <div className="bg-primary w-full mx-4 rounded-2xl flex flex-col justify-center p-4">
     <div className="text-center">
-      <Typography variant="h3">{plan} Plan</Typography>
+      <Typography variant="h3">{plan}</Typography>
       <div>
         <Typography className="inline" variant="h1">{price}</Typography>
         <Typography className="inline" variant="h3" color="secondary">/mo</Typography>

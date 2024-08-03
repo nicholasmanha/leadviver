@@ -6,13 +6,28 @@ import axios from 'axios';
 const leads = {
   basic: "prod_QaYT8rn3izYWxg",
   silver: "prod_QaYTGR1EIB2Tip",
-  gold: "prod_QaYTk8Wz93fCRl"
+  cool: "prod_QahCSDexwaM9IW"
 }
 
+interface Product_data {
+  product: Product;
+  price: Price
+}
 
+interface Product {
+  id: string;
+
+  name: string;
+}
+
+interface Price {
+  id: string;
+  unit_amount: number;
+  product: string;
+}
 
 function Price_Table() {
-  const [priceId, setPriceId] = useState({});
+  const [product_data, setProduct_data] = useState<Product_data[]>([]);
   useEffect(() => {
 
     const fetchPaymentIntent = async () => {
@@ -22,8 +37,8 @@ function Price_Table() {
           product_ids: leads,
         });
 
-
-        setPriceId(response.data)
+        setProduct_data(response.data)
+        console.log(product_data)
 
       } catch (error) {
         console.error('Error creating payment intent:', error);
@@ -31,24 +46,37 @@ function Price_Table() {
     }
     fetchPaymentIntent();
   });
-  if (Object.keys(priceId).length === 0) {
+  if (product_data.length === 0) {
     return (
-      <p>
-        loading
-      </p>
+      <p>loading...</p>
     )
   }
   else {
     return (
-      <div className="flex justify-evenly my-4 flex-1">
 
-        <PlanCard product="prod_QaYT8rn3izYWxg" plan="Basic" price={priceId.prod_QaYT8rn3izYWxg.unit_amount / 100}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut, </PlanCard>
-        <PlanCard product="prod_QaYT8rn3izYWxg" plan="Silver" price={priceId.prod_QaYTGR1EIB2Tip.unit_amount / 100}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut, </PlanCard>
-        <PlanCard product="prod_QaYT8rn3izYWxg" plan="Gold" price={priceId.prod_QaYTk8Wz93fCRl.unit_amount / 100}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut, </PlanCard>
+      <div className="flex justify-evenly my-4 flex-1">
+        {product_data.map((product_instance) => {
+          try {
+            return <PlanCard
+              key={product_instance.product.id}
+              product={product_instance.product.id}
+              plan={product_instance.product.name}
+              price={(product_instance.price.unit_amount / 100).toString()}>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos corrupti magni tenetur nam voluptatibus eligendi qui temporibus aliquam aut,
+            </PlanCard>
+          }
+          catch {
+            return <p>erm there was an error :/</p>
+          }
+
+        })}
+
 
       </div>
     )
   }
+
+
 }
 
 export default Price_Table
