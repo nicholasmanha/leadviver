@@ -39,7 +39,11 @@ export default function Page() {
                 <AuthProviderButton logo={<FaApple />} name="Apple" />
                 <AuthProviderButton logo={<FaMicrosoft />} name="Microsoft" />
                 <div className="flex w-full items-center">
-                    <hr className="border border-text-secondary w-full" /><Typography className="mx-2 mb-[-2px]" variant="h5" color="secondary">OR</Typography><hr className="w-full border border-text-secondary" />
+                    <hr className="border border-text-secondary/90 w-full" />
+                    <Typography className="mx-2 mb-[-2px]" variant="h5" color="secondary">
+                        OR
+                    </Typography>
+                    <hr className="w-full border border-text-secondary/90" />
                 </div>
 
                 <div className="my-2 mb-4">

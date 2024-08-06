@@ -40,7 +40,11 @@ export default function Page() {
                 <AuthProviderButton logo={<FaApple />} name="Apple" />
                 <AuthProviderButton logo={<FaMicrosoft />} name="Microsoft" />
                 <div className="flex w-full items-center">
-                    <hr className="border border-text-secondary w-full" /><Typography className="mx-2 mb-[-2px]" variant="h5" color="secondary">OR</Typography><hr className="w-full border border-text-secondary" />
+                    <hr className="border border-text-secondary/90 w-full" />
+                    <Typography className="mx-2 mb-[-2px]" variant="h5" color="secondary">
+                        OR
+                    </Typography>
+                    <hr className="w-full border border-text-secondary/90" />
                 </div>
 
                 <div className="my-2 mb-4">
@@ -57,7 +61,12 @@ export default function Page() {
                 <Button className="sm:w-52 w-full">Register</Button>
 
                 <Typography className="text-center mt-6 mb-4">
-                    Already have an account? <Link href="/s/signin"><span className="hover:underline hover:text-blue-800 visited:text-purple-600 text-url">Log In</span></Link>
+                    Already have an account?
+                    <Link href="/s/signin">
+                        <Typography className="inline-flex" color="link">
+                            Log In
+                        </Typography>
+                    </Link>
                 </Typography>
             </>
         </SignWrapper>
