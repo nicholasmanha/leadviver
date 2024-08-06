@@ -16,7 +16,16 @@ export default function PaginationNavigation({ className }: PaginationNavigation
         , className)}>
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-center justify-center">
-            <Button variant="muted" className="rounded-r-none h-6"><Typography variant="button-4" className="text-text-secondary/30">Prev</Typography></Button><Button className="rounded-l-none h-6" variant="default"><Typography variant="button-4">Next</Typography></Button>
+            <Button variant="muted" className="rounded-r-none h-6">
+              <Typography variant="button-4" className="text-text-secondary/30">
+                Prev
+              </Typography>
+            </Button>
+            <Button className="rounded-l-none h-6" variant="default">
+              <Typography variant="button-4" className="text-white">
+                Next
+              </Typography>
+            </Button>
 
           </div>
           <Typography variant="subtitle" color="secondary">

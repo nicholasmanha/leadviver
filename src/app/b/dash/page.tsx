@@ -45,18 +45,7 @@ const leads = [
         date: "3/4/23",
         notes: "test"
     },
-    {
-        price: 250,
-        address: "819 Lakeview Boulevard",
-        date: "3/4/23",
-        notes: "test"
-    },
-    {
-        price: 250,
-        address: "819 Lakeview Boulevard",
-        date: "3/4/23",
-        notes: "test"
-    },
+
 ]
 
 
@@ -134,13 +123,20 @@ export default function Page() {
 
                     </Table>
                 }
+                <div className="flex justify-center mt-2">
+                    <a href="#">
+                        <Typography variant="button-4" color="link">Show More</Typography>
 
+                    </a>
+
+                </div>
 
 
             </Card>
 
             <Card title="Unreviewed Leads" >
                 <div className="flex justify-end">
+
                     <DropdownMenu>
                         <DropdownMenuTrigger className="" asChild>
                             <div className="relative top-[-35px] ml-2 w-6">
@@ -168,7 +164,7 @@ export default function Page() {
                                     <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
                                     <Tile.Right>
                                         <Button className="py-0 h-8">
-                                            <Typography variant="h5">Review</Typography>
+                                            <Typography variant="button-2" className="text-text-button">Review</Typography>
                                         </Button>
                                     </Tile.Right>
 
@@ -198,9 +194,7 @@ export default function Page() {
                                     <TableCell>{lead.address}</TableCell>
                                     <TableCell className="text-right">{lead.notes}</TableCell>
                                     <TableCell className="text-right">
-                                        
-                                    <span className="hover:underline cursor-pointer hover:text-blue-800 visited:text-purple-600 text-url">Review</span>
-                                        
+                                        <Typography variant="button-4" color="link">Review</Typography>
                                     </TableCell>
                                 </TableRow>
                             ))}

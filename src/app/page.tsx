@@ -76,12 +76,12 @@ export default function Home() {
           <div className={"flex justify-center gap-10 m-5 items-center " + (width < 515 && "flex-col ")}>
             <Link href="/s/signup">
               <Button variant="red" size="lg">
-                <Typography variant="button-1">Selling Leads</Typography>
+                <Typography variant="button-1" color="button">Selling Leads</Typography>
               </Button>
             </Link>
             <Link href="/b/signup">
               <Button variant="blue" size="lg">
-                <Typography variant="button-1">Buying Leads</Typography>
+                <Typography variant="button-1" color="button">Buying Leads</Typography>
               </Button>
             </Link>
           </div>
