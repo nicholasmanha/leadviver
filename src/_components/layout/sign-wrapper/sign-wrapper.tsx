@@ -6,11 +6,6 @@ import "./signuppagecss.css"
 import { useEffect, useState } from "react";
 import { ReactElement } from "react"
 
-interface AuthProviderProps {
-    logo?: ReactElement;
-    name?: ReactElement | String;
-}
-
 interface ImageComponentProps {
     filename: string;
 }

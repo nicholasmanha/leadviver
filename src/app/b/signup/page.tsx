@@ -60,15 +60,15 @@ export default function Page() {
                 </div>
                 <Button className="sm:w-52 w-full">Register</Button>
 
-                <Typography className="text-center mt-6 mb-4">
-                    Already have an account?
+                <div className="text-text-primary text-base font-normal text-center mt-6 mb-4">
+                    Already have an account? {" "}
                     <Link href="/b/signin">
                         <Typography className="inline-flex" color="link">
                             Log In
                         </Typography>
 
                     </Link>
-                </Typography>
+                </div>
             </>
         </SignWrapper>
     )
