@@ -1,8 +1,8 @@
 "use client"
 
-import BasePage from "@/_components/basepage";
-import NavbarWrapper from "@/_components/navbar";
-import Typography from "@/_components/Typography";
+import BasePage from "@/_components/layout/basepage";
+import NavbarWrapper from "@/_components/layout/navbar";
+import Typography from "@/_components/ui/Typography";
 import Leads from "./leads"
 import Stats from "./stats"
 import {
@@ -10,7 +10,7 @@ import {
     TabsContent,
     TabsList,
     TabsTrigger,
-} from "@/_components/Tab"
+} from "@/_components/ui/Tab"
 
 import { cookies } from 'next/headers'
 
