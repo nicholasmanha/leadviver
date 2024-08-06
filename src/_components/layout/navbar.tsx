@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Typography from "./Typography"
+import Typography from "@/_components/ui/Typography"
 
 interface NavbarWrapperProps {
     children?: any

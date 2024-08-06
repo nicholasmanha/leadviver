@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation";
-import Typography from "./Typography"
-import { Button } from "./button"
+import Typography from "../../../_components/ui/Typography"
+import { Button } from "../../../_components/ui/button"
 import { ReactElement } from "react"
 
 

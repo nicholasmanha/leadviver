@@ -1,11 +1,11 @@
 'use client';
 
-import Typography from "@/_components/Typography"
-import { Button } from "@/_components/button"
-import BasePage from "@/_components/basepage";
+import Typography from "@/_components/ui/Typography"
+import { Button } from "@/_components/ui/button"
+import BasePage from "@/_components/layout/basepage";
 import { FaAnglesDown } from "react-icons/fa6";
 import { useRef } from 'react';
-import NavbarWrapper from "@/_components/navbar";
+import NavbarWrapper from "@/_components/layout/navbar";
 import { useState, useEffect } from "react";
 import Link from 'next/link'
 

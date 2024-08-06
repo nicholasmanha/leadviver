@@ -1,8 +1,8 @@
 "use client"
-import Tile from "@/_components/tile/tile"
-import Typography from "@/_components/Typography";
+import Tile from "@/_components/ui/tile/tile"
+import Typography from "@/_components/ui/Typography";
 import { LuCheckCircle2 } from "react-icons/lu";
-import Card from "@/_components/Card";
+import Card from "@/_components/ui/Card";
 import {
   Table,
   TableBody,
@@ -10,8 +10,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/_components/Table"
-import { Button } from "@/_components/button";
+} from "@/_components/ui/Table"
+import { Button } from "@/_components/ui/button";
 import { LuDownload } from "react-icons/lu";
 import { LuPlusCircle } from "react-icons/lu";
 import {
@@ -22,10 +22,10 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/_components/Dropdown"
+} from "@/_components/ui/Dropdown"
 import { LuMenu } from "react-icons/lu";
 import { useState, ChangeEvent, useEffect } from "react";
-import { Input } from "@/_components/input";
+import { Input } from "@/_components/ui/input";
 
 const seeded_leads = [
   {

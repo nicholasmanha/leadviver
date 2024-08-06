@@ -1,12 +1,9 @@
 "use client"
-import PaymentPlanPage from "@/_components/PlanCard"
-import BasePage from "@/_components/basepage";
-import NavbarWrapper from "@/_components/navbar";
-import Typography from "@/_components/Typography";
-import { Input } from "@/_components/input";
+import BasePage from "@/_components/layout/basepage";
+import NavbarWrapper from "@/_components/layout/navbar";
+import Typography from "@/_components/ui/Typography";
+import { Input } from "@/_components/ui/input";
 import Price_Table from "./price_table";
-import axios from "axios";
-import { useEffect } from "react";
 
 
 export default function Page() {

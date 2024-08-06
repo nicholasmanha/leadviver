@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import PlanCard from "@/_components/PlanCard";
+import PlanCard from "./PlanCard";
 import axios from 'axios';
 
 const leads = {

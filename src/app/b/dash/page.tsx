@@ -1,10 +1,10 @@
 "use client"
 
-import BasePage from "@/_components/basepage";
-import NavbarWrapper from "@/_components/navbar";
-import Typography from "@/_components/Typography";
-import Tile from "@/_components/tile/tile"
-import Card from "@/_components/Card";
+import BasePage from "@/_components/layout/basepage";
+import NavbarWrapper from "@/_components/layout/navbar";
+import Typography from "@/_components/ui/Typography";
+import Tile from "@/_components/ui/tile/tile"
+import Card from "@/_components/ui/Card";
 import {
     Table,
     TableBody,
@@ -12,8 +12,8 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/_components/Table"
-import { Button } from "@/_components/button";
+} from "@/_components/ui/Table"
+import { Button } from "@/_components/ui/button";
 import { useState } from "react";
 import {
     DropdownMenu,
@@ -23,7 +23,7 @@ import {
     DropdownMenuRadioItem,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/_components/Dropdown"
+} from "@/_components/ui/Dropdown"
 import { LuMenu } from "react-icons/lu";
 
 const leads = [
