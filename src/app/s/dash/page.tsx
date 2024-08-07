@@ -12,7 +12,7 @@ import {
     TabsTrigger,
 } from "@/_components/ui/Tab"
 
-import { cookies } from 'next/headers'
+// import { cookies } from 'next/headers'
 
 
 
@@ -41,18 +41,18 @@ export default function Page() {
 
     // console.log(paramValue);
 
-    const hash = (window && window.location.hash) || null;
-    let tokens :any = {};
-    try {
-        tokens = convertStringToDict(hash ?? "");
-        let access_token = tokens["access_token"];
-        cookies().set({
-            name: 'authToken',
-            value: access_token,
-            httpOnly: true,
-            path: '/',
-        })
-    } catch (e) {}
+    // const hash = (window && window.location.hash) || null;
+    // let tokens :any = {};
+    // try {
+    //     tokens = convertStringToDict(hash ?? "");
+    //     let access_token = tokens["access_token"];
+    //     cookies().set({
+    //         name: 'authToken',
+    //         value: access_token,
+    //         httpOnly: true,
+    //         path: '/',
+    //     })
+    // } catch (e) {}
 
 
 
