@@ -1,11 +1,11 @@
 "use client"
 
-import BasePage from "@/_components/basepage";
-import NavbarWrapper from "@/_components/navbar";
-import Typography from "@/_components/Typography";
-import Tile from "@/_components/tile/tile"
+import BasePage from "@/_components/layout/basepage";
+import NavbarWrapper from "@/_components/layout/navbar";
+import Typography from "@/_components/ui/Typography";
+import Tile from "@/_components/ui/tile/tile"
 import { LuCheckCircle2 } from "react-icons/lu";
-import Card from "@/_components/Card";
+import Card from "@/_components/ui/Card";
 import {
   Table,
   TableBody,
@@ -13,8 +13,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/_components/Table"
-import { Button } from "@/_components/button";
+} from "@/_components/ui/Table"
+import { Button } from "@/_components/ui/button";
 import { LuDownload } from "react-icons/lu";
 import { LuPlusCircle } from "react-icons/lu";
 import {
@@ -22,9 +22,9 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/_components/Tab"
-import InputSearch from "@/_components/input-search";
-import PaginationNavigation from "@/_components/pagin-nav";
+} from "@/_components/ui/Tab"
+import InputSearch from "@/_components/ui/input-search";
+import PaginationNavigation from "@/_components/ui/pagin-nav";
 
 
 const invoices = [

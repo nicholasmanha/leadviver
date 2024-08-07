@@ -1,11 +1,11 @@
 'use client';
 
-import Typography from "@/_components/Typography"
-import { Button } from "@/_components/button"
-import BasePage from "@/_components/basepage";
+import Typography from "@/_components/ui/Typography"
+import { Button } from "@/_components/ui/button"
+import BasePage from "@/_components/layout/basepage";
 import { FaAnglesDown } from "react-icons/fa6";
 import { useRef } from 'react';
-import NavbarWrapper from "@/_components/navbar";
+import NavbarWrapper from "@/_components/layout/navbar";
 import { useState, useEffect } from "react";
 import Link from 'next/link'
 
@@ -76,12 +76,12 @@ export default function Home() {
           <div className={"flex justify-center gap-10 m-5 items-center " + (width < 515 && "flex-col ")}>
             <Link href="/s/signup">
               <Button variant="red" size="lg">
-                <Typography variant="button-1">Selling Leads</Typography>
+                <Typography variant="button-1" color="button">Selling Leads</Typography>
               </Button>
             </Link>
             <Link href="/b/signup">
               <Button variant="blue" size="lg">
-                <Typography variant="button-1">Buying Leads</Typography>
+                <Typography variant="button-1" color="button">Buying Leads</Typography>
               </Button>
             </Link>
           </div>

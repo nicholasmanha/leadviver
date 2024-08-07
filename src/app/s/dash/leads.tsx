@@ -1,8 +1,8 @@
 "use client"
-import Tile from "@/_components/tile/tile"
-import Typography from "@/_components/Typography";
+import Tile from "@/_components/ui/tile/tile"
+import Typography from "@/_components/ui/Typography";
 import { LuCheckCircle2 } from "react-icons/lu";
-import Card from "@/_components/Card";
+import Card from "@/_components/ui/Card";
 import {
   Table,
   TableBody,
@@ -10,8 +10,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/_components/Table"
-import { Button } from "@/_components/button";
+} from "@/_components/ui/Table"
+import { Button } from "@/_components/ui/button";
 import { LuDownload } from "react-icons/lu";
 import { LuPlusCircle } from "react-icons/lu";
 import {
@@ -22,10 +22,10 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/_components/Dropdown"
+} from "@/_components/ui/Dropdown"
 import { LuMenu } from "react-icons/lu";
 import { useState, ChangeEvent, useEffect } from "react";
-import { Input } from "@/_components/input";
+import { Input } from "@/_components/ui/input";
 
 const seeded_leads = [
   {
@@ -137,13 +137,15 @@ export default function Leads() {
           </TableRow>
         </TableHeader>
         <TableBody>
-
+ 
           {leads.map(lead => (
             <TableRow key={lead.id}>
+
               <TableCell className="font-medium"><Input placeholder="Enter price" onChange={(e) => handleInputChange(lead.id, 'price', e.target.value)} required></Input></TableCell>
               <TableCell><Input placeholder="Enter address" onChange={(e) => handleInputChange(lead.id, 'address', e.target.value)}></Input></TableCell>
               <TableCell><Input placeholder="Enter Date" onChange={(e) => handleInputChange(lead.id, 'date', e.target.value)}></Input></TableCell>
               <TableCell className="text-right"><Input placeholder="Enter notes" onChange={(e) => handleInputChange(lead.id, 'notes', e.target.value)}></Input></TableCell>
+
             </TableRow>
           ))
 
@@ -157,13 +159,13 @@ export default function Leads() {
         <div className="inline-flex">
           <Button variant="default" size="sm" className="hidden sm:flex mr-2">
             <div className="flex items-center justify-center "><LuDownload className="w-3 mr-1 h-3" /></div>
-            <Typography className="inline-flex mb-[-2px]" variant="button-4">
+            <Typography className="inline-flex mb-[-2px]" variant="button-4" color="button">
               Download Template CSV
             </Typography>
           </Button>
           <Button variant="default" size="sm" className="hidden sm:flex mr-2">
             <div className="flex items-center justify-center "><LuDownload className="w-3 mr-1 h-3" /></div>
-            <Typography className="inline-flex mb-[-2px]" variant="button-4">
+            <Typography className="inline-flex mb-[-2px]" variant="button-4" color="button">
               Upload CSV
             </Typography>
           </Button>
@@ -171,7 +173,7 @@ export default function Leads() {
         <div className="inline-flex">
           <Button onClick={outputToConsole} variant="default" size="sm" className="ml-2">
             <div className="flex items-center justify-center "><LuPlusCircle className="w-3 mr-1 h-3" /></div>
-            <Typography className="inline-flex mb-[-2px]" variant="button-4">
+            <Typography className="inline-flex mb-[-2px] text-white" variant="button-4">
               Upload Leads
             </Typography>
           </Button>

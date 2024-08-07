@@ -1,7 +1,7 @@
 "use client"
 
-import Typography from "@/_components/Typography";
-import Card from "@/_components/Card";
+import Typography from "@/_components/ui/Typography";
+import Card from "@/_components/ui/Card";
 
 export default function Stats() {
 

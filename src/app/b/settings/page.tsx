@@ -1,11 +1,11 @@
 "use client"
 
-import BasePage from "@/_components/basepage";
-import NavbarWrapper from "@/_components/navbar";
-import Typography from "@/_components/Typography";
-import Tile from "@/_components/tile/tile"
+import BasePage from "@/_components/layout/basepage";
+import NavbarWrapper from "@/_components/layout/navbar";
+import Typography from "@/_components/ui/Typography";
+import Tile from "@/_components/ui/tile/tile"
 import { LuCheckCircle2 } from "react-icons/lu";
-import Card from "@/_components/Card";
+import Card from "@/_components/ui/Card";
 import {
   Table,
   TableBody,
@@ -13,13 +13,13 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/_components/Table"
-import { Button } from "@/_components/button";
+} from "@/_components/ui/Table"
+import { Button } from "@/_components/ui/button";
 import { LuDownload } from "react-icons/lu";
 import { LuPlusCircle } from "react-icons/lu";
-import { Input } from "@/_components/input";
-import { Switch } from "@/_components/Switch";
-import { Label } from "@/_components/Label";
+import { Input } from "@/_components/ui/input";
+import { Switch } from "@/_components/ui/Switch";
+import { Label } from "@/_components/ui/Label";
 
 const invoices = [
   {
@@ -99,8 +99,8 @@ export default function Page() {
   return <>
     <NavbarWrapper></NavbarWrapper>
     <BasePage>
-      <div className="mb-12">
-        <Typography variant="h2">Settings</Typography>
+      <div className="mb-12 " >
+        <Typography variant="h2" >Settings</Typography>
       </div>
 
 
@@ -128,7 +128,7 @@ export default function Page() {
           </div>
 
         </div>
-        <Button size="default" variant="default"><Typography variant="button-2">Apply Changes</Typography></Button>
+        <Button size="default" variant="default"><Typography variant="button-2" color="button">Apply Changes</Typography></Button>
       </div>
 
       <div className="sm:w-[600px] w-full mb-12">
@@ -172,7 +172,7 @@ export default function Page() {
               </div>
 
             </div>
-            <Button className="w-24"> <Typography variant="button-3">Change</Typography> </Button>
+            <Button className="w-24"> <Typography variant="button-3" color="button">Change</Typography> </Button>
           </div>
           <div className="">
             <Button size="default">Add</Button>
