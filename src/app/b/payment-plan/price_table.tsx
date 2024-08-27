@@ -4,9 +4,9 @@ import PlanCard from "./PlanCard";
 import axios from 'axios';
 
 const leads = {
-  basic: "prod_QaYT8rn3izYWxg",
-  silver: "prod_QaYTGR1EIB2Tip",
-  cool: "prod_QahCSDexwaM9IW"
+  basic: "prod_QjiUA3Jwd4p9Po",
+  silver: "prod_QjiVQZMOfKEK1r",
+  cool: "prod_QjiVgE0Jc68Fpg"
 }
 
 interface Product_data {
@@ -33,7 +33,7 @@ function Price_Table() {
     const fetchPaymentIntent = async () => {
       try {
 
-        const response = await axios.post('https://j4y10kfape.execute-api.us-west-1.amazonaws.com/Prod/fetch_product', {
+        const response = await axios.post('https://d3sw4qgqj2.execute-api.us-west-1.amazonaws.com/Dev/fetch_product', {
           product_ids: leads,
         });
 
