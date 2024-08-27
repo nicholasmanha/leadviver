@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import PlanCard from "./PlanCard";
 import axios from 'axios';
+import { Oval } from 'react-loader-spinner'
 
 const leads = {
   basic: "prod_QjiUA3Jwd4p9Po",
@@ -48,7 +49,16 @@ function Price_Table() {
   });
   if (product_data.length === 0) {
     return (
-      <p>loading...</p>
+      <Oval
+        visible={true}
+        height="40"
+        width="40"
+        color="white"
+        secondaryColor="gray"
+        ariaLabel="oval-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        />
     )
   }
   else {
