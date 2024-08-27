@@ -126,7 +126,7 @@ export default function Leads() {
   return <>
 
     <Card title="Upload Leads" info="test">
-      <Table className="fade">
+      <Table>
 
         <TableHeader>
           <TableRow>
