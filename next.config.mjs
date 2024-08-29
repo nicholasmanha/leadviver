@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     output: 'export',
-    distDir: 'dist'
+    distDir: 'dist',
+    reactStrictMode: false
 };
+
+
 
 export default nextConfig;
