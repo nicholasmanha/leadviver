@@ -1,4 +1,4 @@
-export default async function get_tokens_from_code(code) {
+export async function get_tokens_from_code(code) {
     try {
         const data = new URLSearchParams({
             grant_type: 'authorization_code',
@@ -21,4 +21,8 @@ export default async function get_tokens_from_code(code) {
     } catch (error) {
         console.error(error)
     }
+}
+
+export async function what_is_my_type() {
+    return "seller";
 }
