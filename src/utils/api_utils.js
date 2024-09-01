@@ -24,5 +24,19 @@ export async function get_tokens_from_code(code) {
 }
 
 export async function what_is_my_type() {
-    return "seller";
+    try {
+        const response = await fetch(
+            (process.env.NEXT_PUBLIC_API_URL || "") + (process.env.NEXT_PUBLIC_CHECK_URL || ""),
+            {
+                method: "GET",
+                cache: "no-store",
+                headers: {
+                    'Content-Type': 'application/json',
+                    "authtoken": localStorage.getItem("id_token") || ""
+                }
+            }
+        )
+        const response_json =  await response.json()
+        return response_json["body"]["user_type"]
+    } catch (e) {}
 }

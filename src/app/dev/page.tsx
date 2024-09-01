@@ -5,12 +5,17 @@ import NavbarWrapper from "@/_components/navbar";
 import { useEffect } from "react";
 import { useRouter } from 'next/navigation';
 import { route_to_my_dash } from "@/utils/routing_utils";
+import { what_is_my_type } from "@/utils/api_utils";
 
 export default function Page() {
     const router = useRouter();
 
     useEffect(() => {
-        route_to_my_dash(router);
+        async function run() {
+            const res = await what_is_my_type()
+            console.log(res)
+        }
+        run()
     })
 
     return <div>
