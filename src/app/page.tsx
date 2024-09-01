@@ -49,6 +49,9 @@ function useWindowDimensions() {
   return windowDimensions;
 }
 
+const set_to_seller = ()=>{localStorage.setItem("on_login_user_type_choice", "seller")}
+const set_to_buyer = ()=>{localStorage.setItem("on_login_user_type_choice", "buyer")}
+
 export default function Home() {
   const scroll_target = useRef<HTMLDivElement>(null);
 
@@ -56,7 +59,7 @@ export default function Home() {
 
   const handleClick = () => {
     scroll_target.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+};
 
   return (
     <>
@@ -74,19 +77,18 @@ export default function Home() {
             I am interested in...
           </Typography>
           <div className={"flex justify-center gap-10 m-5 items-center " + (width < 515 && "flex-col ")}>
-            <Link href="/s/signup">
+            <Link href={process.env.NEXT_PUBLIC_COGNITO_LOGIN_URL || ""} onClick={set_to_seller}>
               <Button variant="red" size="lg">
                 <Typography variant="button-1" color="button">Selling Leads</Typography>
               </Button>
             </Link>
-            <Link href="/b/signup">
+            <Link href={process.env.NEXT_PUBLIC_COGNITO_LOGIN_URL || ""} onClick={set_to_buyer}>
               <Button variant="blue" size="lg">
                 <Typography variant="button-1" color="button">Buying Leads</Typography>
               </Button>
             </Link>
           </div>
           <div className="h-40" />
-
           <div className="h-40" />
         </div>
         {height > 700 && <div className="flex justify-center absolute inset-x-1/3 bottom-14" onClick={handleClick}>
