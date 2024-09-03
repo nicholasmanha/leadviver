@@ -26,6 +26,7 @@ export default function Page() {
                 const tokens = await get_tokens_from_code(code || "");
                 if ("error" in tokens) { throw Error(); }
                 // THIS IS BAD
+                console.log(tokens)
                 localStorage.setItem("id_token", tokens["id_token"])
             } catch (e) {}
             
@@ -41,6 +42,7 @@ export default function Page() {
                     case "admin":
                         break;
                     case "unassigned":
+                        router.push('/choose_user_type');
                         break;
                 }
 
@@ -52,7 +54,6 @@ export default function Page() {
 
     }, [])
     return <div>
-        <NavbarWrapper></NavbarWrapper>
         <BasePage>
             <div>Redirecting</div>
         </BasePage>

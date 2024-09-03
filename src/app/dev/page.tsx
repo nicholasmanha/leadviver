@@ -12,8 +12,7 @@ export default function Page() {
 
     useEffect(() => {
         async function run() {
-            const res = await what_is_my_type()
-            console.log(res)
+            const res = await what_is_my_type();
         }
         run()
     })

@@ -12,8 +12,6 @@ import {
     TabsTrigger,
 } from "@/_components/Tab"
 
-import { cookies } from 'next/headers'
-
 
 
 function convertStringToDict(input: string): { [key: string]: string } {
@@ -34,24 +32,11 @@ function convertStringToDict(input: string): { [key: string]: string } {
 }
 
 export default function Page() {
-    
-    
-    // const searchParams = useSearchParams();
-    // const paramValue = searchParams?.get('access_token');
-
-    // console.log(paramValue);
 
     const hash = (window && window.location.hash) || null;
     let tokens :any = {};
     try {
         tokens = convertStringToDict(hash ?? "");
-        let access_token = tokens["access_token"];
-        cookies().set({
-            name: 'authToken',
-            value: access_token,
-            httpOnly: true,
-            path: '/',
-        })
     } catch (e) {}
 
 
