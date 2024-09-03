@@ -32,35 +32,35 @@ const seeded_leads = [
     id: 1,
     price: 250,
     address: "819 Lakeview Boulevard",
-    date: "3/4/23",
+    zip: "3/4/23",
     notes: "test"
   },
   {
     id: 2,
     price: 250,
     address: "819 Lakeview Boulevard",
-    date: "3/4/23",
+    zip: "3/4/23",
     notes: "test"
   },
   {
     id: 3,
     price: 250,
     address: "819 Lakeview Boulevard",
-    date: "3/4/23",
+    zip: "3/4/23",
     notes: "test"
   },
   {
     id: 4,
     price: 250,
     address: "819 Lakeview Boulevard",
-    date: "3/4/23",
+    zip: "3/4/23",
     notes: "test"
   },
   {
     id: 5,
     price: 250,
     address: "819 Lakeview Boulevard",
-    date: "3/4/23",
+    zip: "3/4/23",
     notes: "test"
   },
 ]
@@ -69,7 +69,7 @@ interface Lead {
   id: number;
   price: number | string;
   address: string;
-  date: string;
+  zip: string;
   notes: string;
   addable: boolean;
 }
@@ -80,24 +80,24 @@ export default function Leads() {
   const [reviewedView, setReviewedView] = useState("tile")
 
   const [leads, setLeads] = useState<Lead[]>([
-    { id: 1, price: '', address: '', date: '', notes: '', addable: true }
+    { id: 1, price: '', address: '', zip: '', notes: '', addable: true }
   ]);
 
   useEffect(() => {
-    const allFieldsFilled = leads[leads.length - 1].price !== '' && leads[leads.length - 1].address && leads[leads.length - 1].date && leads[leads.length - 1].notes
-    // const allFilled = leads.every(lead => lead.id === Math.max(...leads.map(lead => lead.id)) && lead.price !== '' && lead.address && lead.date && lead.notes);
+    const allFieldsFilled = leads[leads.length - 1].price !== '' && leads[leads.length - 1].address && leads[leads.length - 1].zip 
+    // const allFilled = leads.every(lead => lead.id === Math.max(...leads.map(lead => lead.id)) && lead.price !== '' && lead.address && lead.zip && lead.notes);
     if (allFieldsFilled) {
 
       // if leads.length != 0, then find the max id and add 1, otherwise make it 1
       const newId = leads.length ? Math.max(...leads.map(lead => lead.id)) + 1 : 1;
 
       // add new lead to leads array
-      setLeads([...leads, { id: newId, price: '', address: '', date: '', notes: '', addable: true }]);
+      setLeads([...leads, { id: newId, price: '', address: '', zip: '', notes: '', addable: true }]);
     }
     
     leads.forEach(lead => {
       // if the leads list doesnt just contain 1 lead and if the current lead isnt the last and all fields are empty
-      if(leads.length !== 1 && leads.indexOf(lead) !== leads.length-1 && lead.price === '' && !lead.address && !lead.date && !lead.notes){
+      if(leads.length !== 1 && leads.indexOf(lead) !== leads.length-1 && lead.price === '' && !lead.address && !lead.zip && !lead.notes){
         setLeads(leads.filter(leadInst => leadInst.id !== lead.id));
       }
     });
@@ -132,7 +132,7 @@ export default function Leads() {
           <TableRow>
             <TableHead className="w-[100px]"><Typography variant="table-header"> Price</Typography></TableHead>
             <TableHead><Typography variant="table-header"> Home Address</Typography></TableHead>
-            <TableHead><Typography variant="table-header">Date</Typography></TableHead>
+            <TableHead><Typography variant="table-header">Zip</Typography></TableHead>
             <TableHead className="text-right"><Typography variant="table-header"> Additional Notes</Typography></TableHead>
           </TableRow>
         </TableHeader>
@@ -143,7 +143,7 @@ export default function Leads() {
 
               <TableCell className="font-medium"><Input placeholder="Enter price" onChange={(e) => handleInputChange(lead.id, 'price', e.target.value)} required></Input></TableCell>
               <TableCell><Input placeholder="Enter address" onChange={(e) => handleInputChange(lead.id, 'address', e.target.value)}></Input></TableCell>
-              <TableCell><Input placeholder="Enter Date" onChange={(e) => handleInputChange(lead.id, 'date', e.target.value)}></Input></TableCell>
+              <TableCell><Input placeholder="Enter Zip" onChange={(e) => handleInputChange(lead.id, 'zip', e.target.value)}></Input></TableCell>
               <TableCell className="text-right"><Input placeholder="Enter notes" onChange={(e) => handleInputChange(lead.id, 'notes', e.target.value)}></Input></TableCell>
 
             </TableRow>
@@ -208,7 +208,7 @@ export default function Leads() {
 
             <Tile key={lead.id}>
               <Tile.Title>
-                <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
+                <Tile.Left zip={lead.zip || ""} price={lead.price} address={lead.address} />
 
 
               </Tile.Title>
@@ -223,7 +223,7 @@ export default function Leads() {
 
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[100px]">Date</TableHead>
+              <TableHead className="w-[100px]">Zip</TableHead>
               <TableHead>Price</TableHead>
               <TableHead>Address</TableHead>
               <TableHead className="text-right">Additional Notes</TableHead>
@@ -232,7 +232,7 @@ export default function Leads() {
           <TableBody>
             {seeded_leads.map((lead) => (
               <TableRow key={lead.id}>
-                <TableCell className="font-medium">{lead.date}</TableCell>
+                <TableCell className="font-medium">{lead.zip}</TableCell>
                 <TableCell>{lead.price}</TableCell>
                 <TableCell>{lead.address}</TableCell>
                 <TableCell className="text-right">{lead.notes}</TableCell>
@@ -273,7 +273,7 @@ export default function Leads() {
 
             <Tile key={lead.id}>
               <Tile.Title>
-                <Tile.Left date={lead.date} price={lead.price} address={lead.address} />
+                <Tile.Left zip={lead.zip || ""} price={lead.price} address={lead.address} />
                 <Tile.Right>
                   <div className="flex items-center text-success">
                     <LuCheckCircle2 className="w-6 mx-2 h-6" />
@@ -294,7 +294,7 @@ export default function Leads() {
 
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[100px]">Date</TableHead>
+              <TableHead className="w-[100px]">zip</TableHead>
               <TableHead>Price</TableHead>
               <TableHead>Address</TableHead>
               <TableHead className="text-right">Additional Notes</TableHead>
@@ -306,7 +306,7 @@ export default function Leads() {
           <TableBody>
             {seeded_leads.map((lead) => (
               <TableRow key={lead.id}>
-                <TableCell className="font-medium">{lead.date}</TableCell>
+                <TableCell className="font-medium">{lead.zip}</TableCell>
                 <TableCell>{lead.price}</TableCell>
                 <TableCell>{lead.address}</TableCell>
                 <TableCell className="text-right">{lead.notes}</TableCell>

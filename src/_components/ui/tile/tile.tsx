@@ -24,7 +24,7 @@ interface TileTitleProps {
 interface TileLeftProps {
   price: number;
   address: string;
-  date: string;
+  zip: string;
 }
 
 interface TileRightProps {
@@ -100,7 +100,7 @@ const Title: FC<TileTitleProps> = ({
 };
 
 const Left: FC<TileLeftProps> = ({
-  price, address, date
+  price, address, zip
 }: TileLeftProps): JSX.Element => {
 
   return (
@@ -108,7 +108,7 @@ const Left: FC<TileLeftProps> = ({
       <div>
         <Typography variant="p-bold" className="mb-[-5px] ">{address}</Typography>
 
-        <Typography className="inline" variant="h3">$</Typography><Typography className="inline" variant="h5">{price}k</Typography> <Typography className="hidden sm:inline" >Posted on {date}</Typography>
+        <Typography className="inline" variant="h3">$</Typography><Typography className="inline" variant="h5">{price}k</Typography> <Typography className="hidden sm:inline" >Posted on {zip}</Typography>
       </div>
     </>
   );
