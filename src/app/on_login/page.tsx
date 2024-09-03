@@ -9,8 +9,24 @@ import { useRouter } from 'next/navigation';
 
 import {
     get_tokens_from_code,
-    what_is_my_type
+    what_is_my_type,
+    choose_lead_selling_type
 } from "@/utils/api_utils";
+
+const handle_unassigned_login = async (router: any) => {
+    const user_type_choice = localStorage.getItem("on_login_user_type_choice");
+    localStorage.removeItem("on_login_user_type_choice")
+    switch (user_type_choice){
+        case "seller":
+            await choose_lead_selling_type(router, "seller");
+            return;
+        case "buyer":
+            await choose_lead_selling_type(router, "buyer");
+            return;
+    } 
+    
+    router.push('/choose_user_type');
+}
 
 export default function Page() {
 
@@ -26,7 +42,6 @@ export default function Page() {
                 const tokens = await get_tokens_from_code(code || "");
                 if ("error" in tokens) { throw Error(); }
                 // THIS IS BAD
-                console.log(tokens)
                 localStorage.setItem("id_token", tokens["id_token"])
             } catch (e) {}
             
@@ -42,7 +57,7 @@ export default function Page() {
                     case "admin":
                         break;
                     case "unassigned":
-                        router.push('/choose_user_type');
+                        handle_unassigned_login(router)
                         break;
                 }
 

@@ -5,38 +5,19 @@ import NavbarWrapper from "@/_components/navbar";
 import Typography from "@/_components/Typography";
 import { Button } from "@/_components/button";
 import { useRouter } from 'next/navigation';
-import { permanently_set_my_type } from "@/utils/api_utils";
-
-const ALERT_MESSAGE = "Something went wrong. Likely, you have already chosen to buy or sell leads. If you'd like to change this, you'll need to create a new account.";
+import { 
+    choose_lead_selling_type
+ } from "@/utils/api_utils";
 
 export default function Page() {
     const router = useRouter();
 
     const choose_selling_leads  = async () => {
-        const response = await permanently_set_my_type("seller");
-        if ("message" in response && response["message"] == 'Unauthorized') {
-            router.push('/');
-            return;
-        } 
-        else if (response['statusCode'] !== 200) {
-            alert(ALERT_MESSAGE)
-            return;
-        }
-        
-        router.push('/s/dash');
+        choose_lead_selling_type(router, "seller");
     }
     
     const choose_buying_leads  = async () => {
-        const response = await permanently_set_my_type("buyer");
-        if ("message" in response && response["message"] == 'Unauthorized') {
-            router.push('/');
-            return;
-        } else if (response['statusCode'] !== 200) {
-            alert(ALERT_MESSAGE)
-            return;
-        }
-
-        router.push('/b/dash');
+        choose_lead_selling_type(router, "buyer");
     }
 
     return <div>

@@ -61,3 +61,27 @@ export async function permanently_set_my_type(type) {
         return response_json;
     } catch (e) {}
 }
+
+export const choose_lead_selling_type = async (router, user_type) => {
+    if (user_type !== "seller" && user_type !== "buyer") { return; }
+    
+    const ERROR_MESSAGE = "Something went wrong. Likely, you have already chosen to buy or sell leads. If you'd like to change this, you'll need to create a new account.";
+    const response = await permanently_set_my_type("seller");
+    
+    if ("message" in response && response["message"] == 'Unauthorized') {
+        router.push('/');
+        return;
+    } 
+    else if (response['statusCode'] !== 200) {
+        alert(ERROR_MESSAGE)
+        return;
+    }
+    switch (user_type) {
+        case "seller":
+            router.push('/s/dash');
+            break;
+        case "buyer":
+            router.push('/b/dash');
+            break;
+    }
+}
