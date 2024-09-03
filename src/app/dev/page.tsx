@@ -1,7 +1,8 @@
 "use client"
 
-import BasePage from "@/_components/basepage";
-import NavbarWrapper from "@/_components/navbar";
+import BasePage from "@/_components/layout/basepage";
+import NavbarWrapper from "@/_components/layout/navbar";
+
 import { useEffect } from "react";
 import { useRouter } from 'next/navigation';
 import { route_to_my_dash } from "@/utils/routing_utils";

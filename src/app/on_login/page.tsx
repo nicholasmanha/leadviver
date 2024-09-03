@@ -1,7 +1,7 @@
 'use client'
 
-import BasePage from "@/_components/basepage";
-import NavbarWrapper from "@/_components/navbar";
+import BasePage from "@/_components/layout/basepage";
+import NavbarWrapper from "@/_components/layout/navbar";
 
 import { useSearchParams } from 'next/navigation'
 import { useEffect } from "react";
