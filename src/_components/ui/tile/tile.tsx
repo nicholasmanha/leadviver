@@ -22,7 +22,7 @@ interface TileTitleProps {
 }
 
 interface TileLeftProps {
-  price: number;
+  price: string;
   address: string;
   zip: string;
 }

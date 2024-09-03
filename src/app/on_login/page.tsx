@@ -40,6 +40,7 @@ export default function Page() {
             try {
                 if (code == "") { throw Error(); }
                 const tokens = await get_tokens_from_code(code || "");
+                console.log(tokens)
                 if ("error" in tokens) { throw Error(); }
                 // THIS IS BAD
                 localStorage.setItem("id_token", tokens["id_token"])

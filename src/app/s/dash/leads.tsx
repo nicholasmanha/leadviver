@@ -26,39 +26,40 @@ import {
 import { LuMenu } from "react-icons/lu";
 import { useState, ChangeEvent, useEffect } from "react";
 import { Input } from "@/_components/ui/input";
+import { upload_leads } from "@/utils/api_utils";
 
 const seeded_leads = [
   {
     id: 1,
-    price: 250,
+    price: "250",
     address: "819 Lakeview Boulevard",
     zip: "3/4/23",
     notes: "test"
   },
   {
     id: 2,
-    price: 250,
+    price: "250",
     address: "819 Lakeview Boulevard",
     zip: "3/4/23",
     notes: "test"
   },
   {
     id: 3,
-    price: 250,
+    price: "250",
     address: "819 Lakeview Boulevard",
     zip: "3/4/23",
     notes: "test"
   },
   {
     id: 4,
-    price: 250,
+    price: "250",
     address: "819 Lakeview Boulevard",
     zip: "3/4/23",
     notes: "test"
   },
   {
     id: 5,
-    price: 250,
+    price: "250",
     address: "819 Lakeview Boulevard",
     zip: "3/4/23",
     notes: "test"
@@ -84,7 +85,7 @@ export default function Leads() {
   ]);
 
   useEffect(() => {
-    const allFieldsFilled = leads[leads.length - 1].price !== '' && leads[leads.length - 1].address && leads[leads.length - 1].zip 
+    const allFieldsFilled = leads[leads.length - 1].price !== '' && leads[leads.length - 1].address && leads[leads.length - 1].zip && leads[leads.length - 1].notes
     // const allFilled = leads.every(lead => lead.id === Math.max(...leads.map(lead => lead.id)) && lead.price !== '' && lead.address && lead.zip && lead.notes);
     if (allFieldsFilled) {
 
@@ -171,7 +172,7 @@ export default function Leads() {
           </Button>
         </div>
         <div className="inline-flex">
-          <Button onClick={outputToConsole} variant="default" size="sm" className="ml-2">
+          <Button onClick={()=>upload_leads(leads)} variant="default" size="sm" className="ml-2">
             <div className="flex items-center justify-center "><LuPlusCircle className="w-3 mr-1 h-3" /></div>
             <Typography className="inline-flex mb-[-2px] text-white" variant="button-4">
               Upload Leads
@@ -208,7 +209,7 @@ export default function Leads() {
 
             <Tile key={lead.id}>
               <Tile.Title>
-                <Tile.Left zip={lead.zip || ""} price={lead.price} address={lead.address} />
+                <Tile.Left zip={lead.zip} price={lead.price} address={lead.address} />
 
 
               </Tile.Title>
@@ -273,7 +274,7 @@ export default function Leads() {
 
             <Tile key={lead.id}>
               <Tile.Title>
-                <Tile.Left zip={lead.zip || ""} price={lead.price} address={lead.address} />
+                <Tile.Left zip={lead.zip} price={lead.price} address={lead.address} />
                 <Tile.Right>
                   <div className="flex items-center text-success">
                     <LuCheckCircle2 className="w-6 mx-2 h-6" />
@@ -294,7 +295,7 @@ export default function Leads() {
 
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[100px]">zip</TableHead>
+              <TableHead className="w-[100px]">Zip</TableHead>
               <TableHead>Price</TableHead>
               <TableHead>Address</TableHead>
               <TableHead className="text-right">Additional Notes</TableHead>

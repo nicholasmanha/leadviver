@@ -85,3 +85,16 @@ export const choose_lead_selling_type = async (router, user_type) => {
             break;
     }
 }
+
+export const upload_leads = async(leads) => {
+    const leads_formatted = leads.map(lead=>({
+        "price": lead["price"],
+        "zip":  lead["zip"],
+        "name":  "jane doe",
+        "address":  lead["address"],
+        "notes":  lead["notes"],
+    }));
+
+    console.log(leads_formatted)
+
+}
