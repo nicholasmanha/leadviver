@@ -90,7 +90,8 @@ export const upload_leads = async(leads) => {
     const leads_formatted = leads.map(lead=>({
         "price": lead["price"],
         "zip":  lead["zip"],
-        "name":  "jane doe",
+        "name":  lead["name"],
+        "phone": lead["phone"],
         "address":  lead["address"],
         "notes":  lead["notes"],
     }));
