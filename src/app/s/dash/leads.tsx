@@ -1,4 +1,5 @@
 "use client";
+import "./form.css";
 import Tile from "@/_components/ui/tile/tile";
 import Typography from "@/_components/ui/Typography";
 import { LuCheckCircle2 } from "react-icons/lu";
@@ -80,8 +81,9 @@ interface Lead {
 export default function Leads() {
   const [pendingView, setPendingView] = useState("tile");
   const [reviewedView, setReviewedView] = useState("tile");
-  const isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
+
+  const isValidPrice = /^\d*$/;
 
   const [leads, setLeads] = useState<Lead[]>([
     {
@@ -137,11 +139,6 @@ export default function Leads() {
       ) {
         setLeads(leads.filter((leadInst) => leadInst.id !== lead.id));
       }
-      if (isValidZip.test(lead.zip)) {
-        setError("");
-      } else {
-        setError("Please enter a valid zip");
-      }
     });
   }, [leads]);
 
@@ -156,17 +153,35 @@ export default function Leads() {
           ? {
               ...lead,
               [field]:
-                field === "price" ? (value === "" ? "" : Number(value)) : value,
+                field === "price" ? (value === "" ? "" : (isValidPrice.test(value) ? (setError(false), Number(value)) : setError(true))) : value,
             }
           : lead
+
+
+          // if field is price:
+          //    if value is ""
+          //        return ""
+          //    else
+          //        if(regex.test(value))
+          //            return value.toInt()
+          //        else
+          //            setError(true)
+          // else
+          //    return value
       )
     );
+    
   };
 
   const outputToConsole = () => {
     console.log(leads.slice(0, -1));
   };
+  const [focused, setFocused] = useState(false);
 
+  const handleFocus = (e: ChangeEvent) => {
+    console.log("focused");
+    setFocused(true);
+  };
   return (
     <>
       <Card title="Upload Leads" info="test">
@@ -205,8 +220,11 @@ export default function Leads() {
                     onChange={(e) =>
                       handleInputChange(lead.id, "price", e.target.value)
                     }
+                    onBlur={handleFocus}
                     required
+                    
                   ></Input>
+                  {focused && error && <p>zip error</p>}
                 </TableCell>
                 <TableCell>
                   <Input
@@ -222,8 +240,14 @@ export default function Leads() {
                     onChange={(e) =>
                       handleInputChange(lead.id, "zip", e.target.value)
                     }
+                    pattern="^[A-Za-z0-9]{3,16}$"
+                    onBlur={handleFocus}
+                    
+                    
+                    required
+                    
                   ></Input>
-                  {error && <p style={{ color: "red" }}>{error}</p>}
+                  {focused && error && <p>zip error</p>}
                 </TableCell>
 
                 <TableCell>
