@@ -1,9 +1,8 @@
 'use client'
 
-import BasePage from "@/_components/basepage";
-import NavbarWrapper from "@/_components/navbar";
-import Typography from "@/_components/Typography";
-import { Button } from "@/_components/button";
+import BasePage from "@/_components/layout/basepage";
+import Typography from "@/_components/ui/Typography";
+import { Button } from "@/_components/ui/button";
 import { useRouter } from 'next/navigation';
 import { 
     choose_lead_selling_type
