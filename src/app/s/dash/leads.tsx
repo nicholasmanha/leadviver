@@ -1,8 +1,9 @@
 "use client";
 import "./form.css";
+import FormInput from "@/_components/ui/FormInput";
 import Tile from "@/_components/ui/tile/tile";
 import Typography from "@/_components/ui/Typography";
-import { LuCheckCircle2 } from "react-icons/lu";
+import { LuCheckCircle2, LuFormInput } from "react-icons/lu";
 import Card from "@/_components/ui/Card";
 import {
   Table,
@@ -81,7 +82,6 @@ interface Lead {
 export default function Leads() {
   const [pendingView, setPendingView] = useState("tile");
   const [reviewedView, setReviewedView] = useState("tile");
-  const [error, setError] = useState(false);
 
   const isValidPrice = /^\d*$/;
 
@@ -95,8 +95,72 @@ export default function Leads() {
       phone: "",
       notes: "",
       addable: true,
+
     },
   ]);
+
+  const inputs = [
+    {
+      id: 1,
+      name: "price",
+      type: "text",
+      placeholder: "Price",
+      errorMessage: "error in price",
+      label: "Price",
+      pattern: "^(0|[1-9][0-9]*)$",
+      required: true,
+    },
+    {
+      id: 2,
+      name: "address",
+      type: "text",
+      placeholder: "Address",
+      errorMessage: "error in address",
+      label: "Address",
+      pattern: "^(0|[1-9][0-9]*)$",
+      required: true,
+    },
+    {
+      id: 3,
+      name: "zip",
+      type: "text",
+      placeholder: "Zip",
+      errorMessage: "error in Zip",
+      label: "Zip",
+      pattern: "^(0|[1-9][0-9]*)$",
+      required: true,
+    },
+    {
+      id: 4,
+      name: "name",
+      type: "text",
+      placeholder: "Name",
+      errorMessage: "error in name",
+      label: "Name",
+      pattern: "^(0|[1-9][0-9]*)$",
+      required: true,
+    },
+    {
+      id: 5,
+      name: "phone",
+      type: "text",
+      placeholder: "Phone",
+      errorMessage: "error in phone",
+      label: "Phone",
+      pattern: "^(0|[1-9][0-9]*)$",
+      required: true,
+    },
+    {
+      id: 6,
+      name: "notes",
+      type: "text",
+      placeholder: "Notes",
+      errorMessage: "error in notes",
+      label: "Notes",
+      pattern: "^(0|[1-9][0-9]*)$",
+      required: true,
+    },
+  ];
 
   useEffect(() => {
     const allFieldsFilled =
@@ -123,6 +187,7 @@ export default function Leads() {
           phone: "",
           notes: "",
           addable: true,
+          
         },
       ]);
     }
@@ -144,44 +209,43 @@ export default function Leads() {
 
   const handleInputChange = (id: number, field: keyof Lead, value: string) => {
     setLeads(
-      leads.map((lead) =>
-        // if curr lead id is equal to the id of the input, then check if the field is the
-        // price then check if the value is empty then make it a string and if not then turn
-        // it into a number. If the field isnt the price field then just return the value,
-        // if the lead id isnt equal to the lead id, then just return the lead
-        lead.id === id
-          ? {
-              ...lead,
-              [field]:
-                field === "price" ? (value === "" ? "" : (isValidPrice.test(value) ? (setError(false), Number(value)) : setError(true))) : value,
-            }
-          : lead
+      leads.map(
+        (lead) =>
+          // if curr lead id is equal to the id of the input, then check if the field is the
+          // price then check if the value is empty then make it a string and if not then turn
+          // it into a number. If the field isnt the price field then just return the value,
+          // if the lead id isnt equal to the lead id, then just return the lead
+          lead.id === id
+            ? {
+                ...lead,
+                [field]:
+                  field === "price"
+                    ? value === ""
+                      ? ""
+                      
+                      : Number(value)
+                      
+                    : value,
+              }
+            : lead
 
-
-          // if field is price:
-          //    if value is ""
-          //        return ""
-          //    else
-          //        if(regex.test(value))
-          //            return value.toInt()
-          //        else
-          //            setError(true)
-          // else
-          //    return value
+        // if field is price:
+        //    if value is ""
+        //        return ""
+        //    else
+        //        
+        //        return value.toInt()
+        //        
+        // else
+        //    return value
       )
     );
-    
   };
 
   const outputToConsole = () => {
     console.log(leads.slice(0, -1));
   };
-  const [focused, setFocused] = useState(false);
 
-  const handleFocus = (e: ChangeEvent) => {
-    console.log("focused");
-    setFocused(true);
-  };
   return (
     <>
       <Card title="Upload Leads" info="test">
@@ -214,66 +278,17 @@ export default function Leads() {
           <TableBody>
             {leads.map((lead) => (
               <TableRow key={lead.id}>
-                <TableCell className="font-medium">
-                  <Input
-                    placeholder="Enter price"
-                    onChange={(e) =>
-                      handleInputChange(lead.id, "price", e.target.value)
-                    }
-                    onBlur={handleFocus}
-                    required
-                    
-                  ></Input>
-                  {focused && error && <p>zip error</p>}
-                </TableCell>
-                <TableCell>
-                  <Input
-                    placeholder="Enter address"
-                    onChange={(e) =>
-                      handleInputChange(lead.id, "address", e.target.value)
-                    }
-                  ></Input>
-                </TableCell>
-                <TableCell>
-                  <Input
-                    placeholder="Enter Zip"
-                    onChange={(e) =>
-                      handleInputChange(lead.id, "zip", e.target.value)
-                    }
-                    pattern="^[A-Za-z0-9]{3,16}$"
-                    onBlur={handleFocus}
-                    
-                    
-                    required
-                    
-                  ></Input>
-                  {focused && error && <p>zip error</p>}
-                </TableCell>
-
-                <TableCell>
-                  <Input
-                    placeholder="Enter Name"
-                    onChange={(e) =>
-                      handleInputChange(lead.id, "name", e.target.value)
-                    }
-                  ></Input>
-                </TableCell>
-                <TableCell>
-                  <Input
-                    placeholder="Enter Phone Number"
-                    onChange={(e) =>
-                      handleInputChange(lead.id, "phone", e.target.value)
-                    }
-                  ></Input>
-                </TableCell>
-                <TableCell className="text-right">
-                  <Input
-                    placeholder="Enter notes"
-                    onChange={(e) =>
-                      handleInputChange(lead.id, "notes", e.target.value)
-                    }
-                  ></Input>
-                </TableCell>
+                {inputs.map((input) => (
+                  <TableCell key={input.id}>
+                    <FormInput
+                      key={input.id}
+                      {...input}
+                      onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        handleInputChange(lead.id, input.name as keyof Lead, e.target.value)
+                      }
+                    />
+                  </TableCell>
+                ))}
               </TableRow>
             ))}
           </TableBody>
