@@ -82,6 +82,7 @@ interface Lead {
 export default function Leads() {
   const [pendingView, setPendingView] = useState("tile");
   const [reviewedView, setReviewedView] = useState("tile");
+  const [valid, setValid] = useState(true);
 
   const isValidPrice = /^\d*$/;
 
@@ -95,7 +96,6 @@ export default function Leads() {
       phone: "",
       notes: "",
       addable: true,
-
     },
   ]);
 
@@ -181,7 +181,6 @@ export default function Leads() {
           phone: "",
           notes: "",
           addable: true,
-          
         },
       ]);
     }
@@ -201,7 +200,15 @@ export default function Leads() {
     });
   }, [leads]);
 
-  const handleInputChange = (id: number, field: keyof Lead, value: string) => {
+  const handleInputChange = (
+    id: number,
+    field: keyof Lead,
+    value: string,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const inputElement = e.target;
+    setValid(inputElement.checkValidity());
+
     setLeads(
       leads.map(
         (lead) =>
@@ -216,9 +223,7 @@ export default function Leads() {
                   field === "price"
                     ? value === ""
                       ? ""
-                      
                       : Number(value)
-                      
                     : value,
               }
             : lead
@@ -227,9 +232,9 @@ export default function Leads() {
         //    if value is ""
         //        return ""
         //    else
-        //        
+        //
         //        return value.toInt()
-        //        
+        //
         // else
         //    return value
       )
@@ -278,7 +283,12 @@ export default function Leads() {
                       key={input.id}
                       {...input}
                       onChange={(e: ChangeEvent<HTMLInputElement>) =>
-                        handleInputChange(lead.id, input.name as keyof Lead, e.target.value)
+                        handleInputChange(
+                          lead.id,
+                          input.name as keyof Lead,
+                          e.target.value,
+                          e
+                        )
                       }
                     />
                   </TableCell>
@@ -315,22 +325,45 @@ export default function Leads() {
             </Button>
           </div>
           <div className="inline-flex">
-            <Button
-              onClick={() => upload_leads(leads)}
-              variant="default"
-              size="sm"
-              className="ml-2"
-            >
-              <div className="flex items-center justify-center ">
-                <LuPlusCircle className="w-3 mr-1 h-3" />
-              </div>
-              <Typography
-                className="inline-flex mb-[-2px] text-white"
-                variant="button-4"
-              >
-                Upload Leads
-              </Typography>
-            </Button>
+            {valid ? (
+              <>
+                <Button
+                  onClick={() => upload_leads(leads)}
+                  variant="default"
+                  size="sm"
+                  className="ml-2"
+                >
+                  <div className="flex items-center justify-center ">
+                    <LuPlusCircle className="w-3 mr-1 h-3" />
+                  </div>
+                  <Typography
+                    className="inline-flex mb-[-2px] text-white"
+                    variant="button-4"
+                  >
+                    Upload Leads
+                  </Typography>
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button
+                  onClick={() => upload_leads(leads)}
+                  variant="muted"
+                  size="sm"
+                  className="ml-2"
+                >
+                  <div className="flex items-center justify-center ">
+                    <LuPlusCircle className="w-3 mr-1 h-3" />
+                  </div>
+                  <Typography
+                    className="inline-flex mb-[-2px] text-white"
+                    variant="button-4"
+                  >
+                    Upload Leads
+                  </Typography>
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </Card>
