@@ -16,7 +16,3 @@ input:invalid[focused="true"] ~ span{
     display: block;
 }
 
-input:invalid + .upload_button{
-    background-color: black;
-    cursor: default;
-}
