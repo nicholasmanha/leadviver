@@ -13,6 +13,5 @@ input:invalid[focused="true"]{
 }
 
 input:invalid[focused="true"] ~ span{
-    background:green;
     display: block;
 }
